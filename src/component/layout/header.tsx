@@ -9,51 +9,82 @@ import Image from "next/image";
 type NavItem = {
   name: string;
   link?: string;
-  dropdown?: string[];
-  mega?: Record<string, string[]>;
+  dropdown?: { name: string; link: string }[];
+  mega?: Record<string, { name: string; link: string }[]>;
 };
 
 const navItems: NavItem[] = [
-  { name: "Home", link: "#" },
+  { name: "Home", link: "/" },
   {
     name: "Company",
-    dropdown: ["About", "History", "Testimonials", "Careers", "Blogs", "FAQs"],
+    dropdown: [
+      { name: "About", link: "/company/about_us" },
+      { name: "History", link: "/company/history" },
+      { name: "Testimonials", link: "/company/company_testimonial" },
+      { name: "Careers", link: "/careers" },
+      { name: "Blogs", link: "/blogs" },
+      { name: "FAQs", link: "/faqs" },
+    ],
   },
-  { name: "Group Tours", link: "#" },
+  { name: "Group Tours", link: "/group/grouptour_herosection" },
   {
     name: "Packages",
-    dropdown: ["India", "Asia", "Island"],
+    dropdown: [
+      { name: "India", link: "/packages/india" },
+      { name: "Asia", link: "/packages/asia" },
+      { name: "Island", link: "/packages/island" },
+    ],
   },
   {
     name: "India",
     mega: {
-      "North India": ["Delhi", "Agra", "Manali", "Shimla", "Jaipur"],
-      "South India": ["Tamil Nadu", "Kerala", "Bangalore"],
-      "West India": ["Pune", "Mumbai"],
-      "East India": ["West Bengal", "Darjeeling", "Arunachal Pradesh"],
-      Spiritual: ["Ayodhya", "Tirupati"],
+      "North India": [
+        { name: "Delhi", link: "/india/north/delhi" },
+        { name: "Agra", link: "/india/north/agra" },
+        { name: "Manali", link: "/india/north/manali" },
+        { name: "Shimla", link: "/india/north/shimla" },
+        { name: "Jaipur", link: "/india/north/jaipur" },
+      ],
+      "South India": [
+        { name: "Tamil Nadu", link: "/india/south/tamil-nadu" },
+        { name: "Kerala", link: "/india/south/kerala" },
+        { name: "Bangalore", link: "/india/south/bangalore" },
+      ],
+      "West India": [
+        { name: "Pune", link: "/india/west/pune" },
+        { name: "Mumbai", link: "/india/west/mumbai" },
+      ],
+      "East India": [
+        { name: "West Bengal", link: "/india/east/west-bengal" },
+        { name: "Darjeeling", link: "/india/east/darjeeling" },
+        { name: "Arunachal Pradesh", link: "/india/east/arunachal-pradesh" },
+      ],
+      Spiritual: [
+        { name: "Ayodhya", link: "/india/spiritual/ayodhya" },
+        { name: "Tirupati", link: "/india/spiritual/tirupati" },
+      ],
     },
   },
   {
     name: "Honeymoon",
     mega: {
       India: [
-        "Goa",
-        "Kerala",
-        "Shimla",
-        "Manali",
-        "Andaman",
-        "Munnar",
-        "Kodaikanal",
-        "Ooty",
+        { name: "Goa", link: "/honeymoon/india/goa" },
+        { name: "Kerala", link: "/honeymoon/india/kerala" },
+        { name: "Shimla", link: "/honeymoon/india/shimla" },
+        { name: "Manali", link: "/honeymoon/india/manali" },
+        { name: "Andaman", link: "/honeymoon/india/andaman" },
+        { name: "Munnar", link: "/honeymoon/india/munnar" },
+        { name: "Kodaikanal", link: "/honeymoon/india/kodaikanal" },
+        { name: "Ooty", link: "/honeymoon/india/ooty" },
       ],
       International: [
-        "Maldives",
-        "Bali",
-        "Mauritius",
-        "Switzerland",
-        "Italy",
-        "Thailand",
+        { name: "Maldives", link: "/honeymoon/international/maldives" },
+        { name: "Bali", link: "/honeymoon/international/bali" },
+        { name: "Mauritius", link: "/honeymoon/international/mauritius" },
+        { name: "Switzerland", link: "/honeymoon/international/switzerland" },
+        { name: "Italy", link: "/honeymoon/international/italy" },
+        { name: "Thailand", link: "/honeymoon/international/thailand" },
       ],
     },
   },
@@ -91,25 +122,38 @@ const Header = () => {
               onMouseLeave={handleMouseLeave}
               className="relative group"
             >
-              <button
-                onClick={() => handleClick(item.name)}
-                className={`flex items-center gap-1 font-medium transition duration-200 ${
-                  activeMenu === item.name
-                    ? "text-white font-bold underline"
-                    : "text-gray-800 hover:text-white"
-                }`}
-              >
-                {item.link ? (
-                  <Link href={item.link}>{item.name}</Link>
-                ) : (
-                  item.name
-                )}
-                {(item.dropdown || item.mega) && (
-                  <FaChevronDown className="text-xs mt-1" />
-                )}
-              </button>
+              {item.link ? (
+                <Link
+                  href={item.link}
+                  onClick={() => handleClick(item.name)}
+                  className={`flex items-center gap-1 font-medium transition duration-200 ${
+                    activeMenu === item.name
+                      ? "text-white font-bold underline"
+                      : "text-gray-800 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                  {(item.dropdown || item.mega) && (
+                    <FaChevronDown className="text-xs mt-1" />
+                  )}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleClick(item.name)}
+                  className={`flex items-center gap-1 font-medium transition duration-200 ${
+                    activeMenu === item.name
+                      ? "text-white font-bold underline"
+                      : "text-gray-800 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                  {(item.dropdown || item.mega) && (
+                    <FaChevronDown className="text-xs mt-1" />
+                  )}
+                </button>
+              )}
 
-              {/* Simple Dropdown */}
+              {/* Dropdown Menu */}
               {item.dropdown && activeDropdown === item.name && (
                 <motion.ul
                   initial={{ opacity: 0, y: 10 }}
@@ -119,18 +163,18 @@ const Header = () => {
                 >
                   {item.dropdown.map((sub, i) => (
                     <li key={i}>
-                      <a
-                        href="#"
+                      <Link
+                        href={sub.link}
                         className="block px-4 py-2 hover:bg-yellow-100 text-sm"
                       >
-                        {sub}
-                      </a>
+                        {sub.name}
+                      </Link>
                     </li>
                   ))}
                 </motion.ul>
               )}
 
-              {/* Mega Dropdown */}
+              {/* Mega Menu */}
               {item.mega && activeDropdown === item.name && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -145,12 +189,12 @@ const Header = () => {
                       <ul className="text-sm space-y-1 text-gray-600">
                         {places.map((place, idx) => (
                           <li key={idx}>
-                            <a
-                              href="#"
+                            <Link
+                              href={place.link}
                               className="hover:text-blue-600 transition"
                             >
-                              • {place}
-                            </a>
+                              • {place.name}
+                            </Link>
                           </li>
                         ))}
                       </ul>
