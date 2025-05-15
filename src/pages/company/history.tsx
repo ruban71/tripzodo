@@ -53,7 +53,7 @@ export default function History() {
               the leading platforms for curated travel experiences. Our mission is to make
               history come alive through immersive, thoughtfully planned journeys across the globe.
               With a focus on cultural authenticity and local insights, we strive to craft memorable
-              adventures that go beyond the ordinary. Whether it's exploring ancient ruins or
+              adventures that go beyond the ordinary. Whether it&apos;s exploring ancient ruins or
               retracing historical footsteps, Tripzodo transforms every trip into a story worth telling.
             </p>
           </div>
@@ -209,7 +209,7 @@ export default function History() {
             <p className="text-sm text-gray-500">Verified Explorer</p>
           </div>
         </div>
-        <p className="text-gray-700">"{traveler.message}"</p>
+        <p className="text-gray-700"> &quot;{traveler.message} &quot;</p>
       </div>
     ))}
   </div>

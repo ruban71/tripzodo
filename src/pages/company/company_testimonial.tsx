@@ -65,9 +65,11 @@ const CompanyTestimonial = () => {
             >
               <FaQuoteLeft className="text-yellow-400 text-2xl mb-4" />
 
+             
               <p className="text-gray-700 italic mb-6 leading-relaxed">
-                "{item.feedback}"
-              </p>
+  &quot;{item.feedback}&quot;
+</p>
+
 
               <div className="flex items-center space-x-4">
                 <Image
