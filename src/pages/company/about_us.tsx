@@ -1,5 +1,7 @@
 import Contactall from "@/component/common/contactall";
 import GetUpdates from "@/component/common/getupdates";
+import MeetOurTeam from "@/component/common/meetour_team";
+import WhyChooseUs from "@/component/common/whychooseus";
 import App_layout from "@/component/layout/app-layout";
 import Image from "next/image";
 import React from "react";
@@ -52,6 +54,7 @@ export default function AboutUs() {
 
   return (
     <App_layout>
+     
       <div>
       {/* Hero Section */}
       <div className="relative h-[60vh] w-full">
@@ -65,7 +68,10 @@ export default function AboutUs() {
           <h1 className="text-white text-5xl font-bold tracking-wide">About Us</h1>
         </div>
       </div>
-
+      <div className="py-9">
+ <MeetOurTeam/>
+ <WhyChooseUs/>
+ </div>
       {/* Story / Vision / Mission */}
       <div className="py-20 px-6 max-w-6xl mx-auto space-y-24">
         {sections.map((sec, idx) => (
