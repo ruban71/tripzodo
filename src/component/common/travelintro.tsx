@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const tags = [
   "Family Camping",
@@ -11,29 +15,36 @@ const tags = [
   "Couple Camping",
 ];
 
+const rotations = ["-6deg", "3deg", "-3deg", "6deg", "-4deg", "2deg"];
+
 function TravelIntro() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-16 px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
-        <div>
+        <div data-aos="fade-up">
           <span className="inline-block bg-yellow-100 text-gray-900 text-lg font-medium px-4 py-1 rounded-full mb-4">
             Welcome to Gowilds
           </span>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            We are most funning company about travel and adventure
+          <h1 className="text-3xl font-bold text-[#fed42a] mb-4 leading-tight">
+            We are the most fun <span className="text-gray-900">company about travel and adventure</span>
           </h1>
-          <p className="text-gray-500 mb-6">
-            Sit amet consectetur velit integer tincidunt sceleries nodalesry
-            volutpat neque fermentum malesuada sceleris quecy massa lacus ultrices
-            eget leo cras odio blandit rhoncus eues feugiat.
+          <p className="text-gray-500 text-[17px] mb-6">
+            Sit amet consectetur velit integer tincidunt scelerisque nodales
+            volutpat neque fermentum malesuada. Massa lacus ultrices eget leo.
+            Cras odio blandit rhoncus eu feugiat.
           </p>
 
-          {/* Tags */}
+          {/* Rotated Tags */}
           <div className="flex flex-wrap gap-4">
             {tags.map((tag, index) => (
               <div
                 key={index}
+                style={{ transform: `rotate(${rotations[index % rotations.length]})` }}
                 className="flex items-center gap-2 bg-white shadow-md px-4 py-2 rounded-xl text-sm font-medium"
               >
                 <FaCheckCircle className="text-[#fed42a]" />
@@ -44,12 +55,16 @@ function TravelIntro() {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full h-full">
-          <div className="rounded-[150px] overflow-hidden shadow-xl border-4 border-white">
+        <div data-aos="zoom-in" className="relative w-full h-[350px] flex items-center justify-center">
+          <div
+            className="overflow-hidden shadow-xl border-4 border-white"
+          
+          >
             <Image
               src="/home/welcome1.jpg"
-              alt="Travel" height={200} width={200}
-              className="object-cover w-full h-full"
+              alt="Travel"
+              fill
+              className="rounded-l-full"
             />
           </div>
         </div>

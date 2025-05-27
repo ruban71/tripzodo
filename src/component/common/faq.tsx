@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 type FAQItem = {
   question: string;
@@ -37,58 +38,57 @@ const Faq: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-white px-6 py-20">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4 text-gray-900">FAQs</h2>
-        <p className="text-lg text-gray-600 mb-12">
-          Find answers to your most pressing questions below.
-        </p>
+    <section className="bg-[#f9fafb] py-2 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        {/* Image Section */}
+        <motion.div
+          initial={{ x: -80, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Image
+            src="/company/faqimage.jpg" height={200} width={200} // Replace with your image path
+            alt="BIM FAQ"
+            className="w-full rounded-xl mt-16 shadow-md  border-l-4 border-yellow-400"
+          />
+        </motion.div>
 
-        <div className="space-y-6">
-          {faqData.map((item: FAQItem, index: number) => {
-            const isActive = activeIndex === index;
+        {/* FAQ Section */}
+        <div>
+          <motion.h2
+            className="text-2xl md:text-3xl font-bold text-gray-800 mt-16 mb-6"
+            initial={{ x: 80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+           <span className='text-yellow-500'>Frequently Asked</span>  Questions
+          </motion.h2>
 
-            return (
-              <div
-                key={index}
-                className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm transition-all bg-gray-50 hover:shadow-md"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none"
-                >
-                  <span className="text-lg font-semibold text-gray-800">
-                    {item.question}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isActive ? 180 : 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-yellow-500 text-2xl font-bold"
-                  >
-                    {isActive ? "−" : "+"}
-                  </motion.span>
-                </button>
+          <div className="space-y-6">
+            {faqData.map((faq, index) => (
+  <motion.div
+    key={index}
+    initial={{ x: 80, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ delay: index * 0.15 }}
+    viewport={{ once: true }}
+    className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-yellow-400"
+  >
+    <h4 className="text-lg font-semibold text-gray-800 hover:text-yellow-500 mb-1">
+      {faq.question}
+    </h4>
+    <p className="text-sm text-gray-600 hover:text-yellow-500">{faq.answer}</p>
+  </motion.div>
+))}
 
-                <AnimatePresence initial={false}>
-                  {isActive && (
-                    <motion.div
-                      key="answer"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="px-6 pb-6 text-gray-600"
-                    >
-                      <p>{item.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+          </div>
         </div>
       </div>
+     
     </section>
+   
   );
 };
 

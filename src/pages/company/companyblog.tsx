@@ -23,7 +23,7 @@ const CompanyBlog = () => {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Absolute Blog Text */}
-      <h1 className="absolute inset-0 flex items-center justify-center text-white text-5xl md:text-7xl font-bold uppercase tracking-wider drop-shadow-lg">
+      <h1 className="absolute inset-0 flex items-center justify-center text-white text-5xl md:text-7xl font-bold tracking-wider drop-shadow-lg">
         Blog
       </h1>
     </div>

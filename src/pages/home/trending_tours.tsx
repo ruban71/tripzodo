@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import Image from "next/image";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const tours = [
   {
@@ -34,19 +35,57 @@ const tours = [
     image: "/home/trending1.jpg",
     link: "#",
   },
+  {
+    country: "Bali, Indonesia",
+    title: "Bali Island Paradise Package",
+    duration: "5 Nights 6 Days",
+    image: "/home/trending1.jpg",
+    link: "#",
+  },
+  {
+    country: "Paris, France",
+    title: "Romantic Paris Getaway",
+    duration: "3 Nights 4 Days",
+    image: "/home/trending1.jpg",
+    link: "#",
+  },
+  {
+    country: "Thailand, Phuket",
+    title: "Tropical Thailand Adventure",
+    duration: "4 Nights 5 Days",
+    image: "/home/trending1.jpg",
+    link: "#",
+  },
+  {
+    country: "Maldives",
+    title: "Luxury Maldives Escape",
+    duration: "5 Nights 6 Days",
+    image: "/home/trending1.jpg",
+    link: "#",
+  },
 ];
 
 function TrendingTours() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <div>
-    <section className="max-w-7xl mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">Trending Tours</h2>
+    <section className="max-w-7xl mx-auto px-9 py-14">
+      <h2
+        className="text-3xl font-bold mb-12 text-center text-gray-800"
+        data-aos="fade-up"
+      >
+       <span className="text-[#fed42a]">Trending</span>  Tours
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {tours.map((tour, index) => (
           <a
             key={index}
             href={tour.link}
-            className="group rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300 border"
+            className="group rounded-xl overflow-hidden shadow hover:shadow-lg transition duration-300 border"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
             <div className="relative h-56 w-full">
               <Image
@@ -62,10 +101,10 @@ function TrendingTours() {
                 <FaMapMarkerAlt className="mr-1" />
                 {tour.country}
               </div>
-              <h3 className="text-md font-semibold text-gray-800 mb-2">
+              <h3 className="text-md font-semibold text-gray-800 mb-2 group-hover:text-[#fed42a] transition">
                 {tour.title}
               </h3>
-              <div className="flex items-center text-sm text-yellow-600 font-medium">
+              <div className="flex items-center text-sm font-medium text-[#fed42a]">
                 <FaClock className="mr-1" />
                 {tour.duration}
               </div>
@@ -74,8 +113,6 @@ function TrendingTours() {
         ))}
       </div>
     </section>
-  
-    </div>
   );
 }
 

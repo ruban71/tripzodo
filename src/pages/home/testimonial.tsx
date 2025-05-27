@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import React from 'react';
 import Image from 'next/image';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// Step 1: Define the testimonial type
-interface TestimonialType {
-  name: string;
-  role: string;
-  message: string;
-  image: string;
-}
-
-// Step 2: Array with type
-const testimonials: TestimonialType[] = [
+const testimonials = [
   {
     name: 'Alice Johnson',
     role: 'Architect',
@@ -51,81 +42,37 @@ const testimonials: TestimonialType[] = [
   },
 ];
 
-const visibleCards = 4;
-
 const Testimonial = () => {
-  const [startIndex, setStartIndex] = useState(0);
-
-  const next = () => {
-    if (startIndex + visibleCards < testimonials.length) {
-      setStartIndex(startIndex + 1);
-    }
-  };
-
-  const prev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
-  };
+  React.useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">What Our Clients Say</h2>
-
-      <div className="relative">
-        {/* Carousel Wrapper */}
-        <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            initial={{ x: 0 }}
-            animate={{ x: `-${startIndex * (100 / visibleCards)}%` }}
-            transition={{ type: 'spring', stiffness: 60, damping: 20 }}
-            style={{
-              width: `${(testimonials.length / visibleCards) * 100}%`,
-            }}
+    <section className="py-12 bg-white  to-white px-4 md:px-10">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10"><span className='text-[#fed42a]'>What Our</span> Clients Say</h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-8 max-w-7xl mx-auto">
+        {testimonials.map((t, i) => (
+          <div
+            key={i}
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
+            className="bg-white border border-[#fed42a] rounded-3xl shadow-lg p-6 text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl group"
           >
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="bg-white shadow-xl rounded-xl px-6 py-8 text-center w-full max-w-xs shrink-0"
-              >
-                <Image
-                  src={t.image}
-                  alt={t.name}
-                  height={200}
-                  width={200}
-                  className="w-20 h-20 rounded-full object-cover border-4 border-yellow-400 mx-auto mb-4"
-                />
-                <p className="text-gray-700 text-sm italic mb-4">“{t.message}”</p>
-                <h4 className="text-lg font-semibold text-gray-900">{t.name}</h4>
-                <p className="text-sm text-gray-500">{t.role}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Navigation */}
-        <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10">
-          <button
-            onClick={prev}
-            disabled={startIndex === 0}
-            className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition disabled:opacity-30"
-          >
-            <FaArrowLeft className="text-gray-600" />
-          </button>
-        </div>
-
-        <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-10">
-          <button
-            onClick={next}
-            disabled={startIndex + visibleCards >= testimonials.length}
-            className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition disabled:opacity-30"
-          >
-            <FaArrowRight className="text-gray-600" />
-          </button>
-        </div>
+            <div className="relative w-24 h-24 mx-auto mb-4">
+              <Image
+                src={t.image}
+                alt={t.name}
+                fill
+                className="rounded-full object-cover border-4 border-[#fed42a] group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <p className="text-gray-600 text-sm italic mb-4 px-2">“{t.message}”</p>
+            <h4 className="text-lg font-semibold text-[#fed42a]">{t.name}</h4>
+            <p className="text-sm text-gray-900">{t.role}</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

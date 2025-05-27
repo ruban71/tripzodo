@@ -36,7 +36,8 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "India",
+    name: "India", link:"/india/hero",
+    
     mega: {
       "North India": [
         { name: "Delhi", link: "/india/north/delhi" },
@@ -66,7 +67,7 @@ const navItems: NavItem[] = [
     },
   },
   {
-    name: "Honeymoon",
+    name: "Honeymoon", link: "/honey_moon/home",
     mega: {
       India: [
         { name: "Goa", link: "/honeymoon/india/goa" },
@@ -77,6 +78,8 @@ const navItems: NavItem[] = [
         { name: "Munnar", link: "/honeymoon/india/munnar" },
         { name: "Kodaikanal", link: "/honeymoon/india/kodaikanal" },
         { name: "Ooty", link: "/honeymoon/india/ooty" },
+        { name: " Coorg", link: "/honeymoon/india/coorg" },
+        
       ],
       International: [
         { name: "Maldives", link: "/honeymoon/international/maldives" },

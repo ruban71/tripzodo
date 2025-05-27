@@ -1,6 +1,7 @@
 import Contactall from "@/component/common/contactall";
 import GetUpdates from "@/component/common/getupdates";
 import MeetOurTeam from "@/component/common/meetour_team";
+import WhyChooseUsAlt from "@/component/common/whychooseus";
 import WhyChooseUs from "@/component/common/whychooseus";
 import App_layout from "@/component/layout/app-layout";
 import Image from "next/image";
@@ -38,7 +39,7 @@ export default function AboutUs() {
     {
       title: "Our Story",
       desc: "Starting as a small team of travel enthusiasts, we've grown into a global platform connecting travelers with seamless tour experiences.",
-      img: "/company/our story.jpg",
+      img: "/group/one.jpg",
     },
     {
       title: "Our Vision",
@@ -70,10 +71,10 @@ export default function AboutUs() {
       </div>
       <div className="py-9">
  <MeetOurTeam/>
- <WhyChooseUs/>
+<WhyChooseUsAlt/>
  </div>
       {/* Story / Vision / Mission */}
-      <div className="py-20 px-6 max-w-6xl mx-auto space-y-24">
+      <div className="py-12 px-6 max-w-6xl mx-auto space-y-24">
         {sections.map((sec, idx) => (
           <div
             key={idx}
@@ -117,29 +118,67 @@ export default function AboutUs() {
       </div>
 
       {/* Stats Cards Section */}
-      <div className="px-6 pb-20 bg-white text-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Impact</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {cardData.map((card, index) => (
-              <div key={index} className="group [perspective:1000px]">
-                <div className="relative w-full h-48 transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  {/* Front */}
-                  <div className="absolute inset-0 bg-yellow-100 rounded-xl flex flex-col items-center justify-center p-4 [backface-visibility:hidden]">
-                    <h3 className="text-3xl font-bold text-yellow-600">{card.stat}</h3>
-                    <p className="text-gray-700 text-lg">{card.label}</p>
-                  </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 bg-yellow-500 text-white rounded-xl px-4 py-6 transform rotate-y-180 [backface-visibility:hidden]">
-                    <h4 className="text-xl font-semibold mb-2">{card.title}</h4>
-                    <p className="text-sm">{card.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+     <div className="px-6 pb-20 bg-white text-gray-800">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#fed42a] mb-12">Our <span className="text-gray-900">Impact</span></h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {cardData.map((card, index) => (
+        <div
+          key={index}
+          className="
+            bg-gradient-to-tr from-yellow-100 to-yellow-50 rounded-xl p-6 shadow-md
+            hover:from-yellow-400 hover:to-yellow-300
+            hover:shadow-xl
+            cursor-pointer
+            transition-all duration-300
+            flex flex-col items-center text-center
+          "
+        >
+          {/* Icon with hover shift */}
+          <div
+            className="text-[#fed42a] text-4xl mb-4 transition-transform duration-300 group-hover:translate-x-2"
+          >
+            {card.icon}
           </div>
+
+          {/* Stat number shifts left on hover */}
+          <h3
+            className="
+              text-4xl font-extrabold text-yellow-600
+              transition-transform duration-300
+              group-hover:-translate-x-1
+            "
+          >
+            {card.stat}
+          </h3>
+
+          {/* Label text shifts right on hover */}
+          <p
+            className="
+              text-lg font-semibold mt-1 mb-4
+              transition-transform duration-300
+              group-hover:translate-x-1
+            "
+          >
+            {card.label}
+          </p>
+
+          {/* Description fades and moves up slightly */}
+          <p
+            className="
+              text-gray-700 text-sm max-w-xs
+              transition-all duration-300 opacity-80
+              hover:opacity-100 hover:-translate-y-1
+            "
+          >
+            {card.description}
+          </p>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
       <Contactall/>
       <GetUpdates/>
       </div>

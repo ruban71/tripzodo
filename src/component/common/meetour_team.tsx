@@ -38,10 +38,10 @@ const teamMembers = [
 
 const MeetTheTeam = () => {
   return (
-    <section className="relative bg-white text-center py-16 px-6 overflow-hidden">
+    <section className="relative bg-white text-center py-12 px-6 overflow-hidden">
       {/* Top Header */}
       <div className="mb-12">
-        <h2 className="text-4xl font-bold text-gray-900">Meet The Team</h2>
+        <h2 className="text-4xl font-bold text-gray-900"><span className='text-[#fed42a]'>Meet Our</span> Team</h2>
         <p className="text-lg text-gray-700 mt-2">
           Behind The Creative Process Of Building Your Brand
         </p>
@@ -51,7 +51,7 @@ const MeetTheTeam = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl mx-auto z-10 relative">
         {teamMembers.map((member, index) => (
           <div key={index} className="flex flex-col items-center">
-            <div className="w-32 h-32 rounded-full border-8 border-yellow-400 overflow-hidden shadow-lg">
+            <div className="w-32 h-32 rounded-full border-8 border-[#fed42a] overflow-hidden shadow-lg">
               <Image
                 src={member.image}
                 alt={member.name} height={200} width={200}
@@ -65,7 +65,7 @@ const MeetTheTeam = () => {
       </div>
 
       {/* Background Shape */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-tr from-yellow-300 to-white rotate-[-3deg] origin-bottom z-0"></div>
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-tr from-[#fed42a] to-white rotate-[-3deg] origin-bottom z-0"></div>
     </section>
   );
 };

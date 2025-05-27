@@ -46,8 +46,8 @@ export default function History() {
           </div>
 
           {/* Section: History of Tripzodo */}
-          <div className="py-20 px-6 max-w-5xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold text-center text-yellow-600">History of Tripzodo</h2>
+          <div className="mt-28 px-6 max-w-5xl mx-auto space-y-6">
+            <h2 className="text-3xl font-bold text-center text-[#fed42a]">History of <span className="text-gray-900">Tripzodo</span></h2>
             <p className="text-lg text-center text-gray-700">
               Tripzodo started as a passion project by travel lovers and has grown into one of
               the leading platforms for curated travel experiences. Our mission is to make
@@ -59,8 +59,8 @@ export default function History() {
           </div>
 
           {/* Section: Why Tripzodo is Number 1 */}
-          <div className="px-6 max-w-5xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold text-center text-yellow-600">Why Tripzodo is Number 1?</h2>
+          <div className="px-6 max-w-5xl mx-auto mt-10 space-y-6">
+            <h2 className="text-3xl font-bold text-center text-[#fed42a] "><span className="text-gray-900">Why Tripzodo is</span> Number 1?</h2>
             <p className="text-lg text-center text-gray-700">
               Tripzodo stands apart by combining personalized service, deep cultural connections,
               and seamless travel logistics. Our team of experts collaborates with local guides and
@@ -73,43 +73,63 @@ export default function History() {
           </div>
 
           {/* Section: Explore Historical Travel Packages */}
-          <div className="px-6 py-9 max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Explore Historical Travel Packages
-            </h2>
+        <div className="px-6 py-9 max-w-7xl mx-auto">
+  <h2 className="text-3xl font-bold text-center mb-16">
+   <span className="text-[#fed42a]">  Explore Historical <span className="text-gray-900">Travel Packages</span></span>
+  </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-              {travelPackages.map((pkg, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl shadow-md hover:shadow-xl transform transition duration-500 hover:scale-105 overflow-hidden"
-                >
-                  <Image
-                    src={pkg.img}
-                    alt={pkg.title}
-                    width={400}
-                    height={250}
-                    className="w-full h-56 object-cover"
-                  />
-                  <div className="p-5 space-y-2">
-                    <h3 className="text-xl font-semibold text-yellow-600">
-                      {pkg.title}
-                    </h3>
-                    <ul className="list-disc list-inside text-gray-600">
-                      {pkg.subtopics.map((sub, i) => (
-                        <li key={i}>{sub}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    {travelPackages.map((pkg, idx) => (
+      <div
+        key={idx}
+        className="relative rounded-xl shadow-md overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-xl"
+      >
+        {/* Image */}
+        <Image
+          src={pkg.img}
+          alt={pkg.title}
+          width={400}
+          height={250}
+          className="w-full h-80 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Title - Always visible */}
+        <div className="absolute bottom-4 left-10 z-10  text-[#fed42a] px-3 py-1 rounded-lg font-semibold text-lg">
+          {pkg.title}
+        </div>
+
+        {/* Curved Overlay */}
+        <div
+          className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            clipPath: 'ellipse(55% 40% at 50% 70%)',
+          }}
+        ></div>
+
+        {/* Popup Content */}
+        <div
+          className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20"
+        >
+          <div className="bg-white rounded-t-3xl p-5 shadow-xl">
+            <h3 className="text-lg font-semibold text-[#fed42a]">{pkg.title}</h3>
+            <ul className="list-disc list-inside text-gray-700 mt-2 max-h-32 overflow-auto text-sm">
+              {pkg.subtopics.map((sub, i) => (
+                <li key={i}>{sub}</li>
               ))}
-            </div>
+            </ul>
           </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
 
           {/* Section: Trending Images */}
-          <div className="py-20 px-6 bg-gray-100">
-            <h2 className="text-3xl font-bold text-center mb-12 text-yellow-600">
-              Trending Travel Moments
+          <div className="py-4 px-6">
+            <h2 className="text-3xl font-bold text-center mb-12 ">
+              Trending <span className="text-[#fed42a]">Travel Moments</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -157,7 +177,7 @@ export default function History() {
                     className="w-full h-64 object-cover"
                   />
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center text-center text-white px-4">
+                  <div className="absolute inset-0 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center text-center mt-36 text-white px-4">
                     <h3 className="text-xl text-yellow-400 font-semibold mb-2">{card.title}</h3>
                     <p className="text-lg text-white">{card.desc}</p>
                   </div>
@@ -167,9 +187,9 @@ export default function History() {
           </div>
 
           {/* Section: Testimonials */}
-          <div className="py-20 px-6 max-w-6xl mx-auto">
-  <h2 className="text-3xl font-bold text-center mb-12 text-yellow-600">
-    What Our Travelers Say
+          <div className="py-9 px-6 max-w-7xl mx-auto">
+  <h2 className="text-3xl font-bold text-center mb-12">
+   <span className="text-[#fed42a]">What Our</span>  Travelers Say
   </h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {[

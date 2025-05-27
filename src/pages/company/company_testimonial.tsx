@@ -1,17 +1,24 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import App_layout from '@/component/layout/app-layout'
-import { FaQuoteLeft } from 'react-icons/fa'
-import Contactall from '@/component/common/contactall'
-import GetUpdates from '@/component/common/getupdates'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import App_layout from '@/component/layout/app-layout';
+import { FaQuoteLeft } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa6';
+import Contactall from '@/component/common/contactall';
+import GetUpdates from '@/component/common/getupdates';
 
 const testimonials = [
+  {
+    name: "Helene Paquet",
+    role: "Advertiser",
+    image: "/company/testimonial1.jpg",
+    feedback: "Visually stunning output and top-notch user experience. Highly recommend!"
+  },
   {
     name: "Emily Stone",
     role: "Marketing Lead",
     image: "/company/testimonial1.jpg",
-    feedback: "The team delivered exactly what we envisioned. Superb coordination and creativity!"
+    feedback: "The team delivered exactly what we envisioned. Coordination and creativity!"
   },
   {
     name: "Liam Parker",
@@ -29,28 +36,22 @@ const testimonials = [
     name: "James Lee",
     role: "Founder & CEO",
     image: "/company/testimonial1.jpg",
-    feedback: "They delivered results beyond expectations. A professional and timely service."
+    feedback: "Their process is streamlined and effective. I’d gladly work with them again."
   },
   {
     name: "Ava Martinez",
     role: "Creative Director",
     image: "/company/testimonial1.jpg",
     feedback: "Visually stunning output and top-notch user experience. Highly recommend!"
-  },
-  {
-    name: "Noah Patel",
-    role: "Operations Head",
-    image: "/company/testimonial1.jpg",
-    feedback: "Efficient, responsive, and very creative. They were a pleasure to work with!"
   }
-]
+];
 
 const CompanyTestimonial = () => {
   return (
     <App_layout>
-      <div className="py-24 px-6 max-w-7xl mx-auto bg-white">
-        <h2 className="text-4xl font-bold text-center text-yellow-600 mb-16">
-          Client Testimonials
+      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-white">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Our Client <span className="text-[#fed42a]">Testimonial</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -61,37 +62,50 @@ const CompanyTestimonial = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-white to-yellow-50 border border-yellow-100 p-6 rounded-xl shadow-md hover:-translate-y-2 transition-transform duration-300"
+              className="group relative rounded-2xl shadow-xl bg-yellow-50 p-8 overflow-hidden"
             >
-              <FaQuoteLeft className="text-yellow-400 text-2xl mb-4" />
+              {/* Gradient background bar */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out z-0 rounded-xl" />
 
-             
-              <p className="text-gray-700 italic mb-6 leading-relaxed">
-  &quot;{item.feedback}&quot;
-</p>
+              {/* Card content */}
+              <div className="relative z-10 flex flex-col">
+  {/* Quote icon at the top */}
+  <FaQuoteLeft className="text-[#fed42a] text-3xl mb-6 opacity-90" />
 
+  <p className="text-[#3b2f2f] leading-relaxed line-clamp-3">
+    {item.feedback}
+  </p>
 
-              <div className="flex items-center space-x-4">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={50}
-                  height={50}
-                  className="rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-lg">{item.name}</h4>
-                  <p className="text-sm text-gray-500">{item.role}</p>
-                </div>
-              </div>
+  <div className="flex items-center gap-4 mt-8">
+    <Image
+      src={item.image}
+      alt={item.name}
+      width={70}
+      height={70}
+      className="rounded-full object-cover"
+    />
+
+    <div>
+      <div className="flex text-[#fed42a] mb-1">
+        {[...Array(5)].map((_, i) => (
+          <FaStar key={i} />
+        ))}
+      </div>
+      <h4 className="font-bold text-[#3b2f2f]">{item.name}</h4>
+      <p className="text-gray-600 text-sm">{item.role}</p>
+    </div>
+  </div>
+</div>
+
             </motion.div>
           ))}
         </div>
       </div>
-      <Contactall/>
-      <GetUpdates/>
-    </App_layout>
-  )
-}
 
-export default CompanyTestimonial
+      <Contactall />
+      <GetUpdates />
+    </App_layout>
+  );
+};
+
+export default CompanyTestimonial;

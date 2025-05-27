@@ -43,7 +43,6 @@ const packages = [
   },
 ];
 
-// Card animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
@@ -59,12 +58,12 @@ const cardVariants = {
 
 const PopularPackages = () => {
   return (
-    <div className="py-16 px-6 bg-gradient-to-br from-sky-100 to-white">
+    <div className="py-16 px-6 max-w-7xl mx-auto bg-white">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-        Popular Packages
+        Popular<span className='text-[#fed42a]'> Packages</span>
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {packages.map((pkg, i) => (
           <motion.div
             key={pkg.title}
@@ -73,34 +72,34 @@ const PopularPackages = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2"
+            className="relative group rounded-2xl overflow-hidden text-center shadow-xl"
           >
-            {/* Image */}
-            <div className="overflow-hidden">
+            {/* Image Container */}
+            <div className="relative h-96 overflow-hidden">
               <Image
                 src={pkg.image}
-                alt={pkg.title} height={200} width={200}
-                className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                alt={pkg.title}
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-500 group-hover:scale-110"
               />
             </div>
 
-            {/* Content */}
-           {/* Content */}
-<div className="p-5 flex flex-col space-y-4">
-  <div>
-    <h3 className="text-xl font-semibold mb-1">{pkg.title}</h3>
-    <p className="text-sm text-gray-500 mb-1">{pkg.location}</p>
-    <p className="text-sm text-gray-600">{pkg.description}</p>
-  </div>
+            {/* Title Overlay - always visible */}
+            <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-[#fed42a] text-center text-lg font-semibold px-4 py-2 z-10">
+              {pkg.title}
+            </div>
 
-  {/* Read More Button */}
-  <button
-    className="self-start px-4 py-2 bg-sky-500 text-white rounded-lg text-sm font-medium hover:bg-sky-600 transition-colors duration-300"
-  >
-    Read More
-  </button>
+            {/* Hover Reveal - Curved Content */}
+            <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-20">
+              <div className="bg-white rounded-t-[3rem] p-6 shadow-lg">
+                <p className="text-sm text-gray-600 mb-4">{pkg.description}</p>
+                <button className="relative inline-block px-6 py-2 border border-yellow-500 text-yellow-500 font-semibold rounded-lg overflow-hidden group transition-colors duration-300">
+  <span className="absolute inset-0 bg-yellow-500 transition-transform transform scale-x-0 group-hover:scale-x-100 origin-left duration-300 ease-out"></span>
+  <span className="relative z-10 group-hover:text-white transition-colors duration-300">View All</span>
+</button>
 
-
+              </div>
             </div>
           </motion.div>
         ))}
