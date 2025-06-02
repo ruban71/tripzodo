@@ -133,7 +133,7 @@ const AsiaTourPackagePage: React.FC = () => {
               Talk to our travel experts and curate an itinerary to your dream destination.
             </p>
           </div>
-          <button className="mt-4 lg:mt-0 bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-600 text-sm font-medium">
+          <button className="mt-4 lg:mt-0 bg-[#fed42a] text-white px-6 py-2 rounded-md hover:bg-[#e6c01e] text-sm font-medium">
             Connect Us
           </button>
         </div>
@@ -152,7 +152,7 @@ const AsiaTourPackagePage: React.FC = () => {
             <p className="text-sm text-gray-500">OUR EXPERTISE</p>
             <div className="flex justify-center items-center gap-1">
               <span className="text-lg font-semibold text-gray-800">4.1</span>
-              <span className="text-yellow-500 text-base">★</span>
+              <span className="text-[#fed42a] text-base">★</span>
               <span className="text-sm text-gray-600">from 5.2k travellers</span>
             </div>
           </div>
@@ -175,7 +175,7 @@ const AsiaTourPackagePage: React.FC = () => {
                   'Above ₹ 2L',
                 ].map((budget, index) => (
                   <div key={index} className="flex items-center space-x-2 text-sm text-gray-600 mb-1">
-                    <input type="checkbox" className="accent-yellow-500" />
+                    <input type="checkbox" className="accent-[#fed42a]" />
                     <label>{budget}</label>
                   </div>
                 ))}
@@ -186,7 +186,7 @@ const AsiaTourPackagePage: React.FC = () => {
                 <h4 className="font-semibold text-gray-800 mb-2">Hotel Ratings</h4>
                 {['5 star', '4 star', '3 star'].map((rating, index) => (
                   <div key={index} className="flex items-center space-x-2 text-sm text-gray-600 mb-1">
-                    <input type="checkbox" className="accent-yellow-500" />
+                    <input type="checkbox" className="accent-[#fed42a]" />
                     <label>{rating}</label>
                   </div>
                 ))}
@@ -217,10 +217,10 @@ const AsiaTourPackagePage: React.FC = () => {
                     <h3 className="text-xl font-semibold text-gray-800">{pkg.title}</h3>
                     <p className="text-sm text-gray-600 mt-1">{pkg.nights}</p>
                     <ul className="text-sm text-gray-700 mt-3 space-y-1">
-                      <li>✅ {pkg.rating} Hotels</li>
-                      <li>✅ {pkg.activities} Activities</li>
-                      {pkg.transfer && <li>✅ Shared Transfer</li>}
-                      {pkg.concierge && <li>✅ 24x7 Concierge</li>}
+                      <li><span className="text-[#fed42a]">✅</span> {pkg.rating} Hotels</li>
+                      <li><span className="text-[#fed42a]">✅</span> {pkg.activities} Activities</li>
+                      {pkg.transfer && <li><span className="text-[#fed42a]">✅</span> Shared Transfer</li>}
+                      {pkg.concierge && <li><span className="text-[#fed42a]">✅</span> 24x7 Concierge</li>}
                     </ul>
                   </div>
                   <div className="flex justify-between items-end mt-4">
@@ -228,7 +228,7 @@ const AsiaTourPackagePage: React.FC = () => {
                       <p className="text-lg font-bold text-gray-800">₹{pkg.price}</p>
                       <p className="text-sm text-gray-500">per person</p>
                     </div>
-                    <button className="bg-green-600 text-white px-4 py-2 text-sm rounded-md hover:bg-green-700">
+                    <button className="bg-[#fed42a] text-white px-4 py-2 text-sm rounded-md hover:bg-[#e6c01e]">
                       View Details
                     </button>
                   </div>
@@ -238,9 +238,11 @@ const AsiaTourPackagePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <WhyChooseUs/>
-      <Contactall/>
-      <GetUpdates/>
+      <WhyChooseUs />
+      <div className='mt-12'>
+      <Contactall />
+      <GetUpdates />
+      </div>
     </App_layout>
   );
 };

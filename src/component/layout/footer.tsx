@@ -53,7 +53,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div>
           <h2 className="text-xl font-semibold mb-4 flex items-center">
-            Newsletter <span className="ml-2 text-green-500">›</span>
+            Newsletter <span className="ml-2 text-[#fed42a]">›</span>
           </h2>
           <p className="text-sm text-gray-400 mb-4">
             Subscribe our newsletter to get our latest update & news.
@@ -64,12 +64,12 @@ const Footer = () => {
               placeholder="Email address"
               className="p-2 w-full rounded-l-md bg-white text-black"
             />
-            <button className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-r-md">
+            <button className="bg-[#fed42a] hover:bg-yellow-600 text-white p-3 rounded-r-md">
               <FaPaperPlane />
             </button>
           </div>
           <label className="flex items-center text-sm text-gray-400 mt-2">
-            <FaCheck className="mr-2 text-green-500" />
+            <FaCheck className="mr-2 text-[#fed42a]" />
             I agree to all terms and policies
           </label>
         </div>
@@ -79,15 +79,15 @@ const Footer = () => {
           <h2 className="text-xl font-semibold mb-4">Contact</h2>
           <ul className="text-sm text-gray-400 space-y-4">
             <li className="flex items-center">
-              <FaPhoneAlt className="text-green-500 mr-3" />
+              <FaPhoneAlt className="text-[#fed42a] mr-3" />
               +00 (123) 456 889
             </li>
             <li className="flex items-center">
-              <FaEnvelope className="text-green-500 mr-3" />
+              <FaEnvelope className="text-[#fed42a] mr-3" />
               contact@example.com
             </li>
             <li className="flex items-center">
-              <FaMapMarkerAlt className="text-green-500 mr-3" />
+              <FaMapMarkerAlt className="text-[#fed42a] mr-3" />
               583 Main Street, NY, USA
             </li>
           </ul>

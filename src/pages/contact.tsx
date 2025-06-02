@@ -5,6 +5,7 @@ import {
   FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaPinterestP,
 } from "react-icons/fa";
 import Image from 'next/image';
+import GetUpdates from '@/component/common/getupdates';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,24 +30,28 @@ const Contact = () => {
 
     const nameRegex = /^[A-Za-z\s]+$/;
     const phoneRegex = /^\d{14}$/;
-    const emailValid = formData.email.includes('@');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!nameRegex.test(formData.name) || !nameRegex.test(formData.subject)) {
-      setError("Name and Subject must contain only alphabets.");
+    if (!nameRegex.test(formData.name)) {
+      setError("Name must contain only alphabets.");
+      return;
+    }
+
+    if (!nameRegex.test(formData.subject)) {
+      setError("Subject must contain only alphabets.");
       return;
     }
 
     if (!phoneRegex.test(formData.phone)) {
-      setError("Phone number must be exactly 14 digits.");
+      setError("Phone number must be exactly 14 digits without special characters.");
       return;
     }
 
-    if (!emailValid) {
-      setError("Email must contain '@'.");
+    if (!emailRegex.test(formData.email)) {
+      setError("Email must be valid and contain '@'.");
       return;
     }
 
-    // Simulate success message
     setSuccessMsg("📩 Message sent to 9524605488");
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
 
@@ -57,23 +62,23 @@ const Contact = () => {
     {
       title: 'Office Location',
       content: '55 Main Street\n2nd Floor New York',
-      image: '/contact/location.jpg',
+      image: '/contact/locationn.png',
     },
     {
       title: 'Email Address',
       content: 'contact@example.com\ninfo@example.com',
-      image: '/contact/email.jpg',
+      image: '/contact/emaill.png',
     },
     {
       title: 'Hotline',
       content: '+1 (307) 776-0608\n666 8888 000',
-      image: '/contact/hotline.jpg',
+      image: '/contact/hotlinee.png',
     },
   ];
 
   return (
     <App_layout>
-      <div className="bg-gradient-to-br from-[#f9fafb] via-[#eef2ff] to-[#f0fdf4] text-gray-800">
+      <div className="bg-white  text-gray-800">
         {/* Hero Section */}
         <div
           className="relative h-[60vh] bg-center bg-cover mt-16"
@@ -86,7 +91,7 @@ const Contact = () => {
               transition={{ duration: 1 }}
               className="text-[#fed42a] text-4xl md:text-6xl font-extrabold drop-shadow-[0_5px_10px_rgba(255,255,255,0.5)]"
             >
-              Contact Us
+              Contact
             </motion.h1>
           </div>
         </div>
@@ -101,7 +106,6 @@ const Contact = () => {
             {successMsg}
           </motion.div>
         )}
-
         {error && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -113,7 +117,7 @@ const Contact = () => {
         )}
 
         {/* Contact Info */}
-        <section className="max-w-6xl mx-auto px-4 py-16">
+        <section className="max-w-6xl mx-auto px-4 py-2 mt-12">
           <div className="flex justify-center mb-8">
             <span className="bg-yellow-100 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
               Contact us
@@ -141,7 +145,7 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form Section */}
+          {/* Contact Form */}
           <div className="mt-16 grid md:grid-cols-2 gap-10 items-start text-left">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -157,7 +161,6 @@ const Contact = () => {
               <p className="text-gray-600 text-lg leading-relaxed">
                 Reach out to us anytime. We are here to help you with any queries regarding our services, availability, or anything else.
               </p>
-
               <div className="flex space-x-3 mt-5 text-xl text-gray-700">
                 {[FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaPinterestP].map((Icon, i) => (
                   <a key={i} href="#" className="p-2 rounded-full hover:bg-[#fed42a] hover:text-gray-900">
@@ -233,6 +236,7 @@ const Contact = () => {
           </div>
         </section>
       </div>
+      <GetUpdates/>
     </App_layout>
   );
 };

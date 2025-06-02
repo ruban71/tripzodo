@@ -77,31 +77,33 @@ export default function Indiatour_trip() {
         {/* Trip Type Cards */}
         {selectedDays && (
           <div className="mt-12 px-6">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 text-center mb-8">
-              Who are you traveling with?
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 mb-16 gap-6 justify-items-center">
-              {tripOptions.map((option, index) => (
-                <motion.div
-                  key={option.label}
-                  className="w-36 h-44 p-4 bg-white rounded-xl border border-yellow-300 hover:border-yellow-500 shadow-md flex flex-col items-center justify-center hover:shadow-xl hover:scale-105 transition-all"
-                  initial="hidden"
-                  animate="visible"
-                  custom={index}
-                  variants={cardVariants}
-                >
-                  <Image
-                    src={option.image}
-                    alt={option.label}
-                    width={64}
-                    height={64}
-                    className="rounded-full mb-3 object-cover"
-                  />
-                  <p className="text-gray-700 font-medium text-center">{option.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 text-center mb-8">
+    Who are you traveling with?
+  </h2>
+  <div className="grid grid-cols-2 md:grid-cols-4 mb-16 gap-6 justify-items-center">
+    {tripOptions.map((option, index) => (
+      <motion.div
+        key={option.label}
+        className="w-36 h-44 p-5 rounded-xl border border-yellow-300 bg-white/20 backdrop-blur-md shadow-lg cursor-pointer flex flex-col items-center justify-center transition-transform duration-300 hover:scale-110 hover:shadow-2xl"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.15, duration: 0.6, type: 'spring', stiffness: 120 }}
+      >
+        <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-yellow-400 mb-4 shadow-md">
+          <Image
+            src={option.image}
+            alt={option.label}
+            width={80}
+            height={80}
+            className="object-cover"
+          />
+        </div>
+        <p className="text-yellow-700 font-semibold text-center">{option.label}</p>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
         )}
       </div>
     </App_layout>

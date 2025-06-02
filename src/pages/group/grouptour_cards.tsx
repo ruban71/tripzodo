@@ -42,13 +42,13 @@ const seasons = [
 const GroupTourCards = () => {
   return (
     <section className="bg-white py-10 px-4 md:px-20">
-      <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Ultimate Group Tour Adventures
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-[#fed42a] mb-4">
+        Ultimate Group<span className="text-gray-900"> Tour Adventures</span> 
       </h2>
 
       {seasons.map((season, i) => (
         <div key={i} className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-6 mt-10" data-aos="fade-left">
+          <h3 className="text-2xl font-semibold text-gray-800 hover:text-[#fed42a] mb-6 mt-10" data-aos="fade-left">
             {season.title}
           </h3>
 

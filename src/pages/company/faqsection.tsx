@@ -32,8 +32,10 @@ function FaqSection() {
         {/* FAQ Content Section */}
         <Faq />
         <WhyChooseUs />
+        <div className="mt-12">
         <Contactall />
         <GetUpdates />
+        </div>
 
         {/* Scoped animation styling */}
         <style jsx>{`

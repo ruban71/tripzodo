@@ -31,8 +31,10 @@ const CompanyBlog = () => {
     <CompanyGallery/>
     <Blogtypes/>
    <LatestBlog/> 
+   <div className='mt-12'>
     <Contactall/>
     <GetUpdates/>
+    </div>
     </App_layout>
   );
 };

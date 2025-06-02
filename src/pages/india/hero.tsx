@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import App_layout from '@/component/layout/app-layout';
 import Image from 'next/image';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import App_layout from '@/component/layout/app-layout';
 
 const originalPlaces = [
   {
@@ -17,6 +19,7 @@ const originalPlaces = [
     image: '/india/east.jpg',
     description: 'Experience temples, beaches, and traditions in South India.',
   },
+  
   {
     title: 'East India',
     route: '/india/east',
@@ -35,6 +38,12 @@ const originalPlaces = [
     image: '/india/east.jpg',
     description: 'Visit India’s most sacred and spiritual destinations.',
   },
+   {
+    title: 'Nature Trails',
+    route: '/india/nature',
+    image: '/india/east.jpg',
+    description: 'Reconnect with nature through serene trails and wildlife adventures.',
+  },
 ];
 
 const shuffleArray = (array: any[]) => {
@@ -48,9 +57,10 @@ const shuffleArray = (array: any[]) => {
 
 const HeroSection = () => {
   const router = useRouter();
-  const [places, setPlaces] = React.useState(originalPlaces);
+  const [places, setPlaces] = useState(originalPlaces);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
     setPlaces(shuffleArray(originalPlaces));
   }, []);
 
@@ -60,97 +70,42 @@ const HeroSection = () => {
 
   return (
     <App_layout>
-      <div className="bg-white min-h-screen px-6 mt-16 py-12 space-y-20">
-        {/* First Row: 3 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {places.slice(0, 3).map((place, index) => (
+      <div className="bg-white min-h-screen py-20 mt-9  px-6">
+        <div className="text-center mb-12" data-aos="fade-down">
+  <h1 className="text-4xl font-bold text-gray-900 mb-4">Top Indian Destinations</h1>
+  <p className="text-gray-600 max-w-xl mx-auto">
+    Discover the diverse beauty of India through our curated regional highlights. From majestic mountains to spiritual sites, your journey starts here.
+  </p>
+</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {places.map((place, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative w-full min-h-[400px] bg-yellow-50 flex items-center justify-center overflow-hidden rounded-2xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="relative bg-white rounded-3xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-500"
             >
-              {/* Description Bottom Right */}
-              <div className="absolute bottom-20 right-6 max-w-sm z-10">
-                <p className="text-lg font-medium text-gray-900 w-28 drop-shadow-md">
-                  {place.description}
-                </p>
+              {/* Image */}
+              <div className="relative w-full h-64 overflow-hidden">
+                <Image
+                  src={place.image}
+                  alt={place.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
-              {/* Title Top Left */}
-              <div className="absolute top-6 left-6 z-10">
-                <h1 className="text-3xl font-bold text-gray-900 w-20 drop-shadow-md">
-                  {place.title}
-                </h1>
-              </div>
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <h2 className="text-2xl font-bold text-gray-900">{place.title}</h2>
+                <p className="text-gray-600">{place.description}</p>
 
-              {/* Merged Images */}
-              <div className="relative h-80 w-80">
-                <div className="absolute top-0 right-0 w-[60%] h-[60%] rounded-2xl overflow-hidden">
-                  <Image src={place.image} alt={`${place.title} Top`} fill />
-                </div>
-                <div className="absolute bottom-0 left-0 w-[50%] h-[50%] rounded-2xl overflow-hidden">
-                  <Image src={place.image} alt={`${place.title} Bottom`} fill />
-                </div>
-              </div>
-
-              {/* Read More Button */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleNavigation(place.route)}
-                  className="px-5 py-2 bg-yellow-400 text-black font-semibold rounded-full shadow-md hover:bg-yellow-300 transition duration-300"
-                >
-                  Read More
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Second Row: 2 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
-          {places.slice(3).map((place, index) => (
-            <motion.div
-              key={index + 3}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index + 3) * 0.1, duration: 0.5 }}
-              className="relative w-full min-h-[400px] bg-yellow-50 flex items-center justify-center overflow-hidden rounded-2xl shadow-lg"
-            >
-              {/* Description Bottom Right */}
-              <div className="absolute bottom-20 right-6 max-w-sm z-10">
-                <p className="text-lg font-medium text-gray-900 w-28 drop-shadow-md">
-                  {place.description}
-                </p>
-              </div>
-
-              {/* Title Top Left */}
-              <div className="absolute top-6 left-6 right-6 z-10">
-                <h1 className="text-3xl font-bold text-gray-900 drop-shadow-md">
-                  {place.title}
-                </h1>
-              </div>
-
-              {/* Merged Images */}
-              <div className="relative w-80 h-80">
-                <div className="absolute top-0 right-0 w-[60%] h-[60%] rounded-2xl overflow-hidden">
-                  <Image src={place.image} alt={`${place.title} Top`} fill />
-                </div>
-                <div className="absolute bottom-0 left-0 w-[60%] h-[60%] rounded-2xl overflow-hidden">
-                  <Image src={place.image} alt={`${place.title} Bottom`} fill />
-                </div>
-              </div>
-
-              {/* Read More Button */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleNavigation(place.route)}
-                  className="px-5 py-2 bg-yellow-400 text-black font-semibold rounded-full shadow-md hover:bg-yellow-300 transition duration-300"
+                  className="inline-block mt-4 px-5 py-2 rounded-full font-semibold text-white bg-yellow-400 hover:bg-yellow-300 transition-colors duration-300"
                 >
                   Read More
                 </motion.button>

@@ -3,7 +3,7 @@ import { FaBell } from "react-icons/fa";
 
 function GetUpdates() {
   return (
-    <section className="bg-[#f4f4f4] py-10 px-4">
+    <section className="bg-[#f4f4f4] mt-10 py-10 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-around gap-6">
         {/* Left - Icon and Text */}
         <div className="flex items-center gap-4">
@@ -28,7 +28,9 @@ function GetUpdates() {
           </button>
         </div>
       </div>
+      
     </section>
+    
   );
 }
 

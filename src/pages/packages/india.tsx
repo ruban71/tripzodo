@@ -71,8 +71,10 @@ function IndiaGalleryPage() {
       </div>
 
       <WhyChooseUs />
+      <div className='mt-12'>
       <Contactall />
       <GetUpdates />
+      </div>
     </App_layout>
   );
 }

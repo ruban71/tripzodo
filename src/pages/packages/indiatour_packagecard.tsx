@@ -245,7 +245,7 @@ const IndiaTourPackagePage: React.FC = () => {
                       <p className="text-lg font-bold text-gray-800">₹{pkg.price}</p>
                       <p className="text-sm text-gray-500">per person</p>
                     </div>
-                    <button className="bg-green-600 text-white px-4 py-2 text-sm rounded-md hover:bg-green-700">
+                    <button className="bg-[#fed42a] text-white px-4 py-2 text-sm rounded-md hover:bg-yellow-500">
                       View Details
                     </button>
                   </div>
@@ -277,8 +277,10 @@ const IndiaTourPackagePage: React.FC = () => {
       )}
 
       <WhyChooseUs />
+      <div className='mt-12'>
       <Contactall />
       <GetUpdates />
+      </div>
     </App_layout>
   );
 };

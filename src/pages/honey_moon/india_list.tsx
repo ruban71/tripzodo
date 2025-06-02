@@ -69,8 +69,8 @@ export default function IndiaList() {
 
   return (
     <App_layout>
-      <div className="min-h-screen bg-gradient-to-b from-[#fffce0] to-[#fef3b0] py-16 px-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#4a3f1f] mb-12">
+      <div className="min-h-screen bg-gradient-to-b from-[#fffce0] to-[#fef3b0] py-16 mt-12 px-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
           Romantic Honeymoon Spots in India
         </h1>
 
@@ -97,11 +97,11 @@ export default function IndiaList() {
                     className="w-full object-cover"
                   />
                   <div className="p-6 text-center">
-                    <h2 className="text-xl font-semibold text-[#4a3f1f] mb-2">{item.title}</h2>
-                    <p className="text-[#4a3f1f] text-base mb-4">{item.description}</p>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h2>
+                    <p className="text-gray-900 text-base mb-4">{item.description}</p>
                     <Link
                       href={`/${item.slug}`}
-                      className="inline-block mt-2 px-4 py-2 rounded-lg bg-[#fed42a] text-[#4a3f1f] font-semibold hover:bg-[#4a3f1f] hover:text-white transition-colors duration-300"
+                      className="inline-block mt-2 px-4 py-2 rounded-lg bg-[#fed42a] text-gray-900 font-semibold hover:bg-text-gray-900 hover:text-white transition-colors duration-300"
                     >
                       Explore →
                     </Link>

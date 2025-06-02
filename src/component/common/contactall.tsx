@@ -27,24 +27,24 @@ const Contactall = () => {
     {
       title: 'Office Location',
       content: '55 Main Street\n2nd Floor New York',
-      image: '/contact/location.jpg',
+      image: '/contact/locationn.png',
     },
     {
       title: 'Email Address',
       content: 'contact@example.com\ninfo@example.com',
-      image: '/contact/email.jpg',
+      image: '/contact/emaill.png',
     },
     {
       title: 'Hotline',
       content: '+1 (307) 776-0608\n666 8888 000',
-      image: '/contact/hotline.jpg',
+      image: '/contact/hotlinee.png',
     },
   ];
 
   return (
    
       
-      <div className="bg-gradient-to-br from-[#f9fafb] via-[#eef2ff] to-[#f0fdf4] text-gray-800">
+      <div className="bg-white text-gray-800">
         {/* Hero Section */}
        
         {/* Success Message */}
@@ -59,7 +59,7 @@ const Contactall = () => {
         )}
 
         {/* Contact Info & Form */}
-        <section className="max-w-6xl mx-auto px-4 py-16">
+        <section className="max-w-6xl mx-auto px-4 py-2">
           {/* Info Cards */}
           <div className="flex justify-center mb-8">
   <span className="bg-yellow-100 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
