@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import App_layout from '@/component/layout/app-layout';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const southPlaces = [
   {
@@ -48,7 +49,7 @@ const SouthIndia = () => {
                 transition={{ delay: index * 0.15, duration: 0.6 }}
                 className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <img src={place.image} alt={place.name} className="h-48 w-full object-cover" />
+                <Image src={place.image} alt={place.name} height={200} width={200} className="h-48 w-full object-cover" />
                 <div className="p-5">
                   <h2 className="text-xl font-semibold mb-2">{place.name}</h2>
                   <p className="text-gray-600 text-sm mb-4">{place.description}</p>
@@ -72,7 +73,7 @@ const SouthIndia = () => {
                 transition={{ delay: (index + 3) * 0.15, duration: 0.6 }}
                 className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 w-full lg:w-1/3"
               >
-                <img src={place.image} alt={place.name} className="h-48 w-full object-cover" />
+                <Image src={place.image} alt={place.name} height={200} width={200} className="h-48 w-full object-cover" />
                 <div className="p-5">
                   <h2 className="text-xl font-semibold mb-2">{place.name}</h2>
                   <p className="text-gray-600 text-sm mb-4">{place.description}</p>

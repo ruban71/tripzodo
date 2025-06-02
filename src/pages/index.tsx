@@ -17,7 +17,7 @@ import TrendingTours from "./home/trending_tours";
 import Contactall from "@/component/common/contactall";
 import GetUpdates from "@/component/common/getupdates";
 import TravelIntro from "@/component/common/travelintro";
-import Contactphone from "@/component/home/contactphone";
+
 
 
 

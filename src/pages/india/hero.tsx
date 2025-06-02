@@ -6,7 +6,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import App_layout from '@/component/layout/app-layout';
 
-const originalPlaces = [
+interface Place {
+  title: string;
+  route: string;
+  image: string;
+  description: string;
+}
+
+const originalPlaces: Place[] = [
   {
     title: 'North India',
     route: '/india/north',
@@ -19,7 +26,6 @@ const originalPlaces = [
     image: '/india/east.jpg',
     description: 'Experience temples, beaches, and traditions in South India.',
   },
-  
   {
     title: 'East India',
     route: '/india/east',
@@ -38,7 +44,7 @@ const originalPlaces = [
     image: '/india/east.jpg',
     description: 'Visit India’s most sacred and spiritual destinations.',
   },
-   {
+  {
     title: 'Nature Trails',
     route: '/india/nature',
     image: '/india/east.jpg',
@@ -46,7 +52,7 @@ const originalPlaces = [
   },
 ];
 
-const shuffleArray = (array: any[]) => {
+const shuffleArray = (array: Place[]): Place[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -57,7 +63,7 @@ const shuffleArray = (array: any[]) => {
 
 const HeroSection = () => {
   const router = useRouter();
-  const [places, setPlaces] = useState(originalPlaces);
+  const [places, setPlaces] = useState<Place[]>(originalPlaces);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -70,13 +76,13 @@ const HeroSection = () => {
 
   return (
     <App_layout>
-      <div className="bg-white min-h-screen py-20 mt-9  px-6">
+      <div className="bg-white min-h-screen py-20 mt-9 px-6">
         <div className="text-center mb-12" data-aos="fade-down">
-  <h1 className="text-4xl font-bold text-gray-900 mb-4">Top Indian Destinations</h1>
-  <p className="text-gray-600 max-w-xl mx-auto">
-    Discover the diverse beauty of India through our curated regional highlights. From majestic mountains to spiritual sites, your journey starts here.
-  </p>
-</div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Top Indian Destinations</h1>
+          <p className="text-gray-600 max-w-xl mx-auto">
+            Discover the diverse beauty of India through our curated regional highlights. From majestic mountains to spiritual sites, your journey starts here.
+          </p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {places.map((place, index) => (
             <motion.div

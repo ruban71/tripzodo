@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import App_layout from "@/component/layout/app-layout";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function InternationalList() {
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function InternationalList() {
               data-aos-delay={index * 100}
               className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
             >
-              <img src={item.image} alt={item.title} className="h-56 w-full object-cover" />
+              <Image src={item.image} alt={item.title} height={200} width={200} className="h-56 w-full object-cover" />
               <div className="p-6 text-center">
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h2>
                 <p className="text-gray-900 text-base mb-4">{item.description}</p>

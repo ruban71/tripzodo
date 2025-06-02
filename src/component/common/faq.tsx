@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 type FAQItem = {
@@ -48,9 +48,11 @@ const Faq: React.FC = () => {
           viewport={{ once: true }}
         >
           <Image
-            src="/company/faqimage.jpg" height={200} width={200} // Replace with your image path
+            src="/company/faqimage.jpg"
+            height={200}
+            width={200}
             alt="BIM FAQ"
-            className="w-full rounded-xl mt-16 shadow-md  border-l-4 border-yellow-400"
+            className="w-full rounded-xl mt-16 shadow-md border-l-4 border-yellow-400"
           />
         </motion.div>
 
@@ -63,32 +65,34 @@ const Faq: React.FC = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-           <span className='text-yellow-500'>Frequently Asked</span>  Questions
+            <span className="text-yellow-500">Frequently Asked</span> Questions
           </motion.h2>
 
           <div className="space-y-6">
             {faqData.map((faq, index) => (
-  <motion.div
-    key={index}
-    initial={{ x: 80, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{ delay: index * 0.15 }}
-    viewport={{ once: true }}
-    className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-yellow-400"
-  >
-    <h4 className="text-lg font-semibold text-gray-800 hover:text-yellow-500 mb-1">
-      {faq.question}
-    </h4>
-    <p className="text-sm text-gray-600 hover:text-yellow-500">{faq.answer}</p>
-  </motion.div>
-))}
-
+              <motion.div
+                key={index}
+                initial={{ x: 80, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: index * 0.15 }}
+                viewport={{ once: true }}
+                onClick={() => toggleFAQ(index)}
+                className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-yellow-400 cursor-pointer"
+              >
+                <h4 className="text-lg font-semibold text-gray-800 hover:text-yellow-500 mb-1">
+                  {faq.question}
+                </h4>
+                {activeIndex === index && (
+                  <p className="text-sm text-gray-600 hover:text-yellow-500">
+                    {faq.answer}
+                  </p>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
-     
     </section>
-   
   );
 };
 
