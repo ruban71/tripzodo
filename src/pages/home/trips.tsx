@@ -15,7 +15,7 @@ const Trips = () => {
       icon: <FaUmbrellaBeach className="text-4xl text-[#fed42a]" />,
       title: 'Beach Getaway',
       description: 'Relax on sunny beaches with golden sands and clear waters.',
-      bg: "/home/adventure1.jpg",
+      bg: "/home/beach_getaway1.jpg",
     },
     {
       icon: <FaMountain className="text-4xl text-[#fed42a]" />,
@@ -27,25 +27,25 @@ const Trips = () => {
       icon: <FaCity className="text-4xl text-[#fed42a]" />,
       title: 'City Escape',
       description: 'Discover vibrant cities full of culture, food, and nightlife.',
-      bg: "/home/adventure1.jpg",
+      bg: "/home/city_escape.jpg",
     },
     {
       icon: <FaCampground className="text-4xl text-[#fed42a]" />,
       title: 'Camping Retreat',
       description: 'Unwind in nature with tents, stars, and bonfires.',
-      bg: "/home/adventure1.jpg",
+      bg: "/home/camping_retreat.jpg",
     },
     {
       icon: <FaShip className="text-4xl text-[#fed42a]" />,
       title: 'Cruise Voyage',
       description: 'Sail across oceans and explore exotic destinations.',
-      bg: "/home/adventure1.jpg",
+      bg: "/home/cruise_voyage.jpg",
     },
     {
       icon: <FaHiking className="text-4xl text-[#fed42a]" />,
       title: 'Jungle Trek',
       description: 'Journey through lush rainforests and thrilling trails.',
-      bg: "/home/adventure1.jpg",
+      bg: "/home/jungle_trek.jpg",
     },
   ];
 

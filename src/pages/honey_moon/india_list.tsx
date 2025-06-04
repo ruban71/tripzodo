@@ -101,7 +101,7 @@ export default function IndiaList() {
                     <p className="text-gray-900 text-base mb-4">{item.description}</p>
                     <Link
                       href={`/${item.slug}`}
-                      className="inline-block mt-2 px-4 py-2 rounded-lg bg-[#fed42a] text-gray-900 font-semibold hover:bg-text-gray-900 hover:text-white transition-colors duration-300"
+                      className="inline-block mt-2 px-4 py-2 rounded-lg bg-[#fed42a] text-gray-900 font-semibold hover:bg-gray-900 hover:text-white transition-colors duration-300"
                     >
                       Explore →
                     </Link>
