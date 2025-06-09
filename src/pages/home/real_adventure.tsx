@@ -14,31 +14,31 @@ const adventures = [
   {
     title: 'Tent camping services',
     category: 'Wildlife',
-    image: '/home/adventure1.jpg',
+    image: '/home/Tent camping services.jpg',
     description: 'Cozy tent setups under the stars.',
   },
   {
     title: 'Trailers and rv spots',
     category: 'Wildlife',
-    image: '/home/adventure1.jpg',
+    image: '/home/Trailers and rv spots.jpg',
     description: 'Comfortable RV spots surrounded by nature.',
   },
   {
     title: 'Adventure and climbing',
     category: 'Wildlife',
-    image: '/home/adventure1.jpg',
+    image: '/home/adventure_climbing.jpg',
     description: 'Challenge yourself with thrilling climbs.',
   },
   {
     title: 'Jungle Safari',
     category: 'Wildlife',
-    image: '/home/adventure1.jpg',
+    image: '/home/Jungle Safari.jpg',
     description: 'Explore wild landscapes and exotic animals.',
   },
   {
     title: 'River Rafting',
     category: 'Wildlife',
-    image: '/home/adventure1.jpg',
+    image: '/home/River Rafting.jpg',
     description: 'Ride the rapids with experienced guides.',
   },
 ];

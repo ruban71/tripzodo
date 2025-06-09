@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             {
               icon: <FaMapMarkedAlt className="text-[#fed42a] text-4xl" />,
               title: 'Personalized Itineraries',
-              img: '/tour/custom-itinerary.jpg',
+              img: '/company/Personalized Itineraries.jpg',
             },
             {
               icon: <FaUmbrellaBeach className="text-[#fed42a] text-4xl" />,
@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
             {
               icon: <FaMountain className="text-[#fed42a] text-4xl" />,
               title: 'Adventure Treks',
-              img: '/tour/mountain.jpg',
+              img: '/company/Adventure Treks.jpg',
             },
             {
               icon: <FaRoute className="text-[#fed42a] text-4xl" />,

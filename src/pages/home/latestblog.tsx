@@ -6,14 +6,14 @@ import Image from 'next/image';
 const blogCategories = [
   {
     id: 1,
-    image: '/home/blog1.jpg',
+    image: '/home/breathtakingbeach_escapes.jpg',
     title: 'Breathtaking Beach Escapes',
     description: 'Sandy shores, crystal waters, and tropical serenity await you.',
     button: 'Explore Beaches',
   },
   {
     id: 2,
-    image: '/home/group1.jpg',
+    image: '/home/majesticmountain_adventures.jpg',
     title: 'Majestic Mountain Adventures',
     description: 'Conquer peaks and explore breathtaking highland trails.',
     button: 'Discover Mountains',
@@ -27,14 +27,14 @@ const blogCategories = [
   },
   {
     id: 4,
-    image: '/home/popular1.jpg',
+    image: '/home/Honeymoon_Spots.jpg',
     title: 'Honeymoon Spots',
     description: 'Plan your dream escape with luxurious scenic spots.',
     button: 'Plan Your Escape',
   },
   {
     id: 5,
-    image: '/home/hero3.jpg',
+    image: '/home/exotic_wildlife.jpg',
     title: 'Exotic Wildlife & Nature Safaris',
     description: 'Get close to nature with unforgettable safari journeys.',
     button: 'Join a Safari',

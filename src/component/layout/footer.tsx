@@ -23,16 +23,16 @@ const Footer = () => {
             exercise except obsome.
           </p>
           <div className="flex space-x-3">
-            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
+            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
               <FaTwitter />
             </a>
-            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
+            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
               <FaFacebookF />
             </a>
-            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
+            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
               <FaInstagram />
             </a>
-            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
+            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
               <FaLinkedinIn />
             </a>
           </div>
@@ -41,12 +41,12 @@ const Footer = () => {
         {/* Pages */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Pages</h2>
-          <ul className="text-sm text-gray-400 space-y-2">
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Community Blog</a></li>
-            <li><a href="#">Work with Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact us</a></li>
+          <ul className="text-sm text-gray-400  space-y-2">
+            <li><a className="hover:text-[#fed42a]" href="#">About us</a></li>
+            <li><a className="hover:text-[#fed42a]" href="#">Group Tours</a></li>
+            <li><a className="hover:text-[#fed42a]" href="#">Packages</a></li>
+            <li><a className="hover:text-[#fed42a]" href="#">India</a></li>
+            <li><a className="hover:text-[#fed42a]" href="#">Contact us</a></li>
           </ul>
         </div>
 
@@ -95,7 +95,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-sm text-gray-500 mt-10 border-t border-gray-800 pt-4 px-4">
+      <div className="text-center text-sm text-gray-500 hover:text-white mt-10 border-t border-gray-800 pt-4 px-4">
         © 2023 Copyrights by GoWilds. All Rights Reserved
       </div>
     </footer>
