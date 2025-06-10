@@ -1,7 +1,7 @@
 import Blogtypes from "@/component/common/blogtypes";
 import CompanyGallery from "@/component/common/companygallery";
 import Image from "next/image";
-import BlogCategoryCards from "../home/latestblog";
+
 
 const seasons = [
   {

@@ -2,7 +2,6 @@ import Contactall from "@/component/common/contactall";
 import Faq from "@/component/common/faq";
 import GetUpdates from "@/component/common/getupdates";
 import MeetOurTeam from "@/component/common/meetour_team";
-import WhyChooseUs from "@/component/common/whychooseus";
 import WhyChooseUsAlt from "@/component/common/whychooseus";
 import App_layout from "@/component/layout/app-layout";
 import Image from "next/image";
