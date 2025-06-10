@@ -37,15 +37,15 @@ const Blogtypes = () => {
   }, []);
 
   return (
-    <section className="py-2 px-4 md:px-12 bg-white">
+    <section className="py-16 bg-white">
       {gallerySections.map((section, index) => (
         <div
           key={index}
           data-aos="fade-up"
-          className="mb-16"
+          className=""
         >
           <div className="mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">{section.title}</h2>
+            <h2 className="text-2xl md:text-3xl mt-12 font-bold text-gray-800">{section.title}</h2>
             <p className="text-gray-600 mt-2 max-w-xl mx-auto">{section.description}</p>
           </div>
 

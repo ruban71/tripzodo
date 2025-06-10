@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
             {
               icon: <FaUmbrellaBeach className="text-[#fed42a] text-4xl" />,
               title: 'Beachside Relaxation',
-              img: '/company/Beachside Relaxation.jpg',
+              img: '/company/Beachside Relaxation1.jpg',
             },
             {
               icon: <FaMountain className="text-[#fed42a] text-4xl" />,
@@ -50,17 +50,17 @@ const WhyChooseUs = () => {
             {
               icon: <FaRoute className="text-[#fed42a] text-4xl" />,
               title: 'Guided Tours',
-              img: '/company/Beachside Relaxation.jpg',
+              img: '/company/Guided Tours.jpg',
             },
             {
               icon: <FaGlobe className="text-[#fed42a] text-4xl" />,
               title: 'Global Destinations',
-              img: '/tour/global.jpg',
+              img: '/company/Global Destinations.jpg',
             },
             {
               icon: <FaPhoneAlt className="text-[#fed42a] text-4xl" />,
               title: '24/7 Travel Support',
-              img: '/tour/support.jpg',
+              img: '/company/Travel Support.jpg',
             },
           ].map((item, index) => (
             <div key={index} className="bg-white p-4 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay={index * 100}>

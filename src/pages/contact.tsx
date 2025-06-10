@@ -125,25 +125,35 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            {contactDetails.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 + index * 0.2 }}
-              >
-                <div className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#fed42a] to-white opacity-0 group-hover:opacity-100 z-0"></div>
-                  <div className="relative z-10 p-6 flex flex-col items-center text-center h-full bg-white/80 backdrop-blur-md rounded-xl">
-                    <Image src={item.image} alt={item.title} height={200} width={200}
-                      className="object-cover mb-4 rounded group-hover:scale-105 transition-all duration-500" />
-                    <h3 className="text-xl font-semibold text-gray-700 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-600 whitespace-pre-line">{item.content}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+  {contactDetails.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 + index * 0.2 }}
+    >
+      <div className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#fed42a] to-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out z-0 rounded-xl" />
+
+        {/* Card Content */}
+        <div className="relative z-10 p-6 flex flex-col items-center text-center h-full bg-white/80 backdrop-blur-md rounded-xl">
+          <Image
+            src={item.image}
+            alt={item.title}
+            height={200}
+            width={200}
+            className="object-cover rounded mb-4 transition-all duration-500 group-hover:scale-105"
+          />
+          <h3 className="text-xl font-semibold text-gray-700 mb-1">{item.title}</h3>
+          <p className="text-sm text-gray-600 whitespace-pre-line">{item.content}</p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
 
           {/* Contact Form */}
           <div className="mt-16 grid md:grid-cols-2 gap-10 items-start text-left">

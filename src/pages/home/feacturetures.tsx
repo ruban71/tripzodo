@@ -17,7 +17,7 @@ import {
 const data = [
   {
     id: 1,
-    image: "/home/hero1.jpg",
+    image: "/home/Luxury Beach Villa.jpg",
     title: "Luxury Beach Villa",
     location: "Goa, India",
     price: "From ₹7,500",

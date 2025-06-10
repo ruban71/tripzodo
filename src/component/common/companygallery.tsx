@@ -30,7 +30,7 @@ const galleryImages = [
 
 const CompanyGallery = () => {
   return (
-    <section className="py-12 px-4 md:px-12 bg-white">
+    <section className=" bg-white">
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
         Tour Packages <span className=' text-[#fed42a]'>Gallery</span>
       </h2>

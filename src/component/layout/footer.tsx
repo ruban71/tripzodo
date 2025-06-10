@@ -1,4 +1,5 @@
-import React from "react";
+'use client';
+import React from 'react';
 import {
   FaTwitter,
   FaFacebookF,
@@ -7,76 +8,122 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaCheck,
-  FaPaperPlane,
-} from "react-icons/fa";
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import Link from "next/link";
+import Image from 'next/image';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
 
 const Footer = () => {
   return (
-    <footer className="bg-[#111] text-white pt-12 pb-6">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* GoWilds Description + Social */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">GoWilds</h2>
-          <p className="text-sm text-gray-400 mb-4">
-            To take trivial example which us ever undertakes laborious physica
-            exercise except obsome.
-          </p>
-          <div className="flex space-x-3">
-            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
-              <FaTwitter />
-            </a>
-            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
-              <FaInstagram />
-            </a>
-            <a href="#" className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700">
-              <FaLinkedinIn />
-            </a>
-          </div>
-        </div>
+    <footer className="relative bg-[#111] text-white py-16 overflow-hidden">
+      {/* Animated Blobs */}
+      <motion.div
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1.4, opacity: 0.15 }}
+        transition={{ duration: 10, repeat: Infinity, repeatType: 'mirror' }}
+        className="absolute top-[-40px] left-[-40px] w-72 h-72 bg-[#fed42a] rounded-full blur-3xl z-0"
+      />
+      <motion.div
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1.4, opacity: 0.15 }}
+        transition={{ duration: 14, repeat: Infinity, repeatType: 'mirror' }}
+        className="absolute bottom-[-50px] right-[-50px] w-72 h-72 bg-[#fed42a] rounded-full blur-2xl z-0"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between gap-8 relative z-10">
+        {/* Logo */}
+       <motion.div
+  className="w-full sm:w-[48%] lg:w-[23%]"
+  custom={1}
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <div className="relative w-40 h-24 mb-4">
+    {/* Blurred glowing shadow background */}
+   
+    {/* Logo image */}
+    <Image
+      src="/home/logo.png"
+      height={200}
+      width={200}
+      alt="Logo"
+      className="relative z-10 mt-10 ml-10 rounded  hover:scale-105 transition duration-300"
+    />
+  </div>
+</motion.div>
 
         {/* Pages */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Pages</h2>
-          <ul className="text-sm text-gray-400  space-y-2">
-            <li><a className="hover:text-[#fed42a]" href="#">About us</a></li>
-            <li><a className="hover:text-[#fed42a]" href="#">Group Tours</a></li>
-            <li><a className="hover:text-[#fed42a]" href="#">Packages</a></li>
-            <li><a className="hover:text-[#fed42a]" href="#">India</a></li>
-            <li><a className="hover:text-[#fed42a]" href="#">Contact us</a></li>
-          </ul>
-        </div>
+        <motion.div
+  className="w-full sm:w-[48%] lg:w-[23%]"
+  custom={2}
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <h2 className="text-xl font-semibold mb-4 text-[#fed42a]">Pages</h2>
+  <ul className="text-sm text-gray-400 space-y-2">
+    {[
+      { name: 'Home', path: '/' },
+      { name: 'About us', path: '/about/about_us' },
+      { name: 'Contact us', path: '/contact' }
+    ].map((page, i) => (
+      <li key={i}>
+        <Link href={page.path} className="hover:text-[#fed42a] transition duration-300">
+          {page.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</motion.div>
 
-        {/* Newsletter */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4 flex items-center">
-            Newsletter <span className="ml-2 text-[#fed42a]">›</span>
-          </h2>
+        {/* GoWilds Description */}
+        <motion.div
+          className="w-full sm:w-[48%] lg:w-[23%]"
+          custom={3}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl text-[#fed42a] font-bold mb-4">GoWilds</h2>
           <p className="text-sm text-gray-400 mb-4">
-            Subscribe our newsletter to get our latest update & news.
+            To take trivial example which us ever undertakes laborious physical exercise except obsome.
           </p>
-          <div className="flex">
-            <input
-              type="email"
-              placeholder="Email address"
-              className="p-2 w-full rounded-l-md bg-white text-black"
-            />
-            <button className="bg-[#fed42a] hover:bg-yellow-600 text-white p-3 rounded-r-md">
-              <FaPaperPlane />
-            </button>
+          <div className="flex space-x-3">
+            {[FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="bg-gray-800 hover:text-[#fed42a] p-2 rounded-full hover:bg-gray-700 transition duration-300"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
-          <label className="flex items-center text-sm text-gray-400 mt-2">
-            <FaCheck className="mr-2 text-[#fed42a]" />
-            I agree to all terms and policies
-          </label>
-        </div>
+        </motion.div>
 
-        {/* Contact */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Contact</h2>
+        {/* Contact Info */}
+        <motion.div
+          className="w-full sm:w-[48%] lg:w-[23%]"
+          custom={4}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-xl font-semibold mb-4 text-[#fed42a]">Contact</h2>
           <ul className="text-sm text-gray-400 space-y-4">
             <li className="flex items-center">
               <FaPhoneAlt className="text-[#fed42a] mr-3" />
@@ -91,11 +138,11 @@ const Footer = () => {
               583 Main Street, NY, USA
             </li>
           </ul>
-        </div>
+        </motion.div>
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-sm text-gray-500 hover:text-white mt-10 border-t border-gray-800 pt-4 px-4">
+      <div className="text-center text-sm text-gray-500 hover:text-white mt-12 border-t border-[#fed42a] pt-4 px-4 relative z-10">
         © 2023 Copyrights by GoWilds. All Rights Reserved
       </div>
     </footer>

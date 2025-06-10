@@ -25,8 +25,8 @@ export default function Home() {
   return (
     <div>
    <Header/>
+   
    <HeroSection/>
-   {/* <Contactphone/> */}
    <PopularPackages/>
    <WelcomeHolidays/>
    <TravelIntro/>
@@ -34,6 +34,7 @@ export default function Home() {
    <RealAdventure/>
    <GroupTours/>
    <Testimonial/>
+
    <TravelHeroSection/>
    <FeaturesCard/>
    <LatestBlog/>
@@ -41,7 +42,6 @@ export default function Home() {
    <TrendingTours/>
    <Contactall/>
    <GetUpdates/>
- 
    <Footer/>
     </div>
   );

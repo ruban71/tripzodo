@@ -37,9 +37,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className=" bg-white text-center mb-12 px-4 md:px-20">
+    <section className=" bg-white text-center mb-12 mt-5 px-4 md:px-20">
         
-      <p className="text-[#fed42a] font-medium mb-2">Our testimonials</p>
+      <div className="flex justify-center mb-8">
+  <span className="bg-yellow-100 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
+    Testimonials
+  </span>
+</div>
     
       <h2 className="text-3xl font-bold mb-12 text-gray-900">
         Read some of our repeat customers feedback

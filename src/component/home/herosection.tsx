@@ -44,135 +44,103 @@ const HeroSection = () => {
   const current = slides[index];
 
   return (
-    <section className="relative h-screen w-full bg-gray-900 text-white overflow-hidden">
-      <Head>
+    <div>
+  <Head>
         <title>TravelSite | Home</title>
       </Head>
 
-      {/* Background image */}
+    
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white">
+    
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${current.src})` }}
-      ></div>
+      />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50 z-0" />
+      <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-      {/* Left arrow */}
+      {/* Navigation Buttons */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 p-3 rounded-full transition"
+        className="absolute z-20 top-1/2 left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition"
       >
-        <span className="w-6 h-6 text-white block">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            className="w-6 h-6"
-          >
-            <path
-              d="M15 19l-7-7 7-7"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15 19l-7-7 7-7"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
-
-      {/* Right arrow */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 p-3 rounded-full transition"
+        className="absolute z-20 top-1/2 right-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition"
       >
-        <span className="w-6 h-6 text-white block">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            className="w-6 h-6"
-          >
-            <path
-              d="M9 5l7 7-7 7"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M9 5l7 7-7 7"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
 
-      {/* Text Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
         <motion.h1
-          className="text-4xl md:text-6xl font-extrabold mb-4"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          key={current.title}
         >
           {current.title}
         </motion.h1>
         <motion.p
-          className="text-lg md:text-2xl mb-6"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+          className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          key={current.subtitle}
         >
           {current.subtitle}
         </motion.p>
-
         <motion.div
           className="flex flex-col sm:flex-row gap-4 mt-4"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
         >
           <Link
-            href="#destinations"
-            className="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition duration-300 ease-in-out"
+            href="/group/grouptour_herosection"
+            className="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition duration-300"
           >
             Explore Destinations
           </Link>
-         
           <Link
-            href="#book"
-            className="border-2 border-white px-6 py-3 rounded-xl text-white hover:bg-white hover:text-black transition duration-300 ease-in-out"
+            href="/contact"
+            className="border-2 border-white px-6 py-3 rounded-xl text-white hover:bg-white hover:text-black transition duration-300"
           >
             Book a Tour
           </Link>
         </motion.div>
       </div>
-
-      {/* Bottom Links */}
-      <div className="absolute top-[90vh] left-0 w-full bg-black bg-opacity-70 py-4 z-10">
-        <div className="container mx-auto px-4 flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-          <Link
-            href="/about"
-            className="text-gray-300 hover:text-white transition hover:scale-105"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/services"
-            className="text-gray-300 hover:text-white transition hover:scale-105"
-          >
-            Our Services
-          </Link>
-          <Link
-            href="/destinations"
-            className="text-gray-300 hover:text-white transition hover:scale-105"
-          >
-           Packages
-          </Link>
-          <Link
-            href="/contact"
-            className="text-gray-300 hover:text-white transition hover:scale-105"
-          >
-            Contact Us
-          </Link>
-        </div>
-      </div>
     </section>
+    </div>
   );
 };
 

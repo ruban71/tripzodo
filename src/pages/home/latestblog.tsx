@@ -80,9 +80,9 @@ const BlogCategoryCards = () => {
             <div className="p-6 text-left">
               <h3 className="text-xl font-bold text-gray-800 mb-2">{category.title}</h3>
               <p className="text-gray-600 text-sm mb-4">{category.description}</p>
-              <button className="mt-auto bg-[#fed42a] hover:bg-yellow-500 text-white font-medium px-4 py-2 rounded-full transition">
+              {/* <button className="mt-auto bg-[#fed42a] hover:bg-yellow-500 text-white font-medium px-4 py-2 rounded-full transition">
                 {category.button}
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

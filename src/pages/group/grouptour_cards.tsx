@@ -1,4 +1,7 @@
+import Blogtypes from "@/component/common/blogtypes";
+import CompanyGallery from "@/component/common/companygallery";
 import Image from "next/image";
+import BlogCategoryCards from "../home/latestblog";
 
 const seasons = [
   {
@@ -38,7 +41,28 @@ const seasons = [
     ],
   },
 ];
-
+const travelPackages = [
+  {
+    title: "Ancient Civilizations",
+    subtopics: ["Egyptian Pyramids", "Machu Picchu", "Petra, Jordan"],
+    img: "/home/trending1.jpg",
+  },
+  {
+    title: "Medieval Europe",
+    subtopics: ["Castles of France", "Colosseum in Rome", "Tower of London"],
+    img: "/home/trending1.jpg",
+  },
+  {
+    title: "Asian Heritage Tours",
+    subtopics: ["Great Wall of China", "Angkor Wat", "Kyoto Temples"],
+    img: "/home/trending1.jpg",
+  },
+  {
+    title: "Colonial Era Journeys",
+    subtopics: ["American Revolution", "British Raj", "Spanish Missions"],
+    img: "/home/trending1.jpg",
+  },
+];
 const GroupTourCards = () => {
   return (
     <section className="bg-white py-10 px-4 md:px-20">
@@ -76,7 +100,134 @@ const GroupTourCards = () => {
           </div>
         </div>
       ))}
+
+
+
+
+<CompanyGallery/>
+<Blogtypes/>
+
+      
+
+
+
+       <div className="max-w-7xl mx-auto">
+  <h2 className="text-3xl font-bold text-center mb-14">
+   <span className="text-[#fed42a]">  Explore Historical <span className="text-gray-900">Travel Packages</span></span>
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    {travelPackages.map((pkg, idx) => (
+      <div
+        key={idx}
+        className="relative rounded-xl shadow-md overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-xl"
+      >
+        {/* Image */}
+        <Image
+          src={pkg.img}
+          alt={pkg.title}
+          width={400}
+          height={250}
+          className="w-full h-80 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Title - Always visible */}
+        <div className="absolute bottom-4 left-10 z-10  text-[#fed42a] px-3 py-1 rounded-lg font-semibold text-lg">
+          {pkg.title}
+        </div>
+
+        {/* Curved Overlay */}
+        <div
+          className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            clipPath: 'ellipse(55% 40% at 50% 70%)',
+          }}
+        ></div>
+
+        {/* Popup Content */}
+        <div
+          className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20"
+        >
+          <div className="bg-white rounded-t-3xl p-5 shadow-xl">
+            <h3 className="text-lg font-semibold text-[#fed42a]">{pkg.title}</h3>
+            <ul className="list-disc list-inside text-gray-700 mt-2 max-h-32 overflow-auto text-sm">
+              {pkg.subtopics.map((sub, i) => (
+                <li key={i}>{sub}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
+          {/* Section: Trending Images */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-center mb-12 ">
+              Trending <span className="text-[#fed42a]">Travel Moments</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {[
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Sunset in Santorini",
+                  desc: "Golden skies over blue-domed churches – pure Mediterranean magic.",
+                },
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Safari in Kenya",
+                  desc: "Capture wildlife in their natural habitat across breathtaking savannas.",
+                },
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Autumn in Kyoto",
+                  desc: "Experience Japan's timeless beauty during its fiery fall foliage season.",
+                },
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Historic Rome",
+                  desc: "Wander the ancient streets where the Roman Empire once thrived.",
+                },
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Alpine Adventures",
+                  desc: "Snowy peaks, cozy chalets, and adrenaline-pumping ski trails await.",
+                },
+                {
+                  img: "/home/trending1.jpg",
+                  title: "Desert Mirage in Dubai",
+                  desc: "A luxurious blend of tradition and futuristic skyline in golden sands.",
+                },
+              ].map((card, index) => (
+                <div
+                  key={index}
+                  className="relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-500 hover:scale-105 group"
+                >
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-64 object-cover"
+                  />
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center text-center mt-36 text-white px-4">
+                    <h3 className="text-xl text-yellow-400 font-semibold mb-2">{card.title}</h3>
+                    <p className="text-lg text-white">{card.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+       
     </section>
+
+    
   );
 };
 

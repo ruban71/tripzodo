@@ -71,7 +71,7 @@ function TrendingTours() {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-9 py-14">
+    <section className="max-w-7xl mx-auto px-9 mt-16">
       <h2
         className="text-3xl font-bold mb-12 text-center text-gray-800"
         data-aos="fade-up"

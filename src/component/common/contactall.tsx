@@ -44,7 +44,7 @@ const Contactall = () => {
   return (
    
       
-      <div className="bg-white text-gray-800">
+      <div className="bg-white mt-16 text-gray-800">
         {/* Hero Section */}
        
         {/* Success Message */}
@@ -59,7 +59,7 @@ const Contactall = () => {
         )}
 
         {/* Contact Info & Form */}
-        <section className="max-w-6xl mx-auto px-4 py-2">
+        <section className="max-w-6xl mx-auto px-4">
           {/* Info Cards */}
           <div className="flex justify-center mb-8">
   <span className="bg-yellow-100 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
@@ -76,27 +76,27 @@ const Contactall = () => {
       transition={{ duration: 0.4 + index * 0.2 }}
     >
       <div className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#fed42a] to-white opacity-0 group-hover:opacity-100 animate-gradient-move z-0"></div>
 
-        {/* Card content */}
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#fed42a] to-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out z-0 rounded-xl" />
+
+        {/* Card Content */}
         <div className="relative z-10 p-6 flex flex-col items-center text-center h-full bg-white/80 backdrop-blur-md rounded-xl">
           <Image
             src={item.image}
-            alt={item.title} height={200} width={200}
-            className=" object-cover rounded- mb-4 transition-all duration-500 group-hover:scale-105"
+            alt={item.title}
+            height={200}
+            width={200}
+            className="object-cover rounded mb-4 transition-all duration-500 group-hover:scale-105"
           />
-          <h3 className="text-xl font-semibold text-gray-700 mb-1">
-            {item.title}
-          </h3>
-          <p className="text-sm text-gray-600 whitespace-pre-line">
-            {item.content}
-          </p>
+          <h3 className="text-xl font-semibold text-gray-700 mb-1">{item.title}</h3>
+          <p className="text-sm text-gray-600 whitespace-pre-line">{item.content}</p>
         </div>
       </div>
     </motion.div>
   ))}
 </div>
+
 
 
           {/* Contact Form */}

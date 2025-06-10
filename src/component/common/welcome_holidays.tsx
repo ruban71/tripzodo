@@ -48,7 +48,7 @@ const WelcomeHolidays = () => {
         </motion.p>
 
         <motion.a
-          href="/packages"
+          href="/group/grouptour_herosection"
           whileHover={{ scale: 1.07 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block mt-8 px-6 py-3 bg-[#fed42a] hover:bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-md transition-all duration-300"
