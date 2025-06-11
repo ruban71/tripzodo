@@ -37,7 +37,7 @@ const Blogtypes = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-8 bg-white">
       {gallerySections.map((section, index) => (
         <div
           key={index}

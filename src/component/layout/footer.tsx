@@ -127,15 +127,15 @@ const Footer = () => {
           <ul className="text-sm text-gray-400 space-y-4">
             <li className="flex items-center">
               <FaPhoneAlt className="text-[#fed42a] mr-3" />
-              +00 (123) 456 889
+              +91 9500093383
             </li>
             <li className="flex items-center">
               <FaEnvelope className="text-[#fed42a] mr-3" />
-              contact@example.com
+              Travel@tripzodo.com
             </li>
             <li className="flex items-center">
-              <FaMapMarkerAlt className="text-[#fed42a] mr-3" />
-              583 Main Street, NY, USA
+              <FaMapMarkerAlt className="text-[#fed42a] text-2xl mr-3" />
+             178/4A ID, Panduranga Elite Enclave, Kundarappalli, Krishnagiri. Tamil Nadu 635-115
             </li>
           </ul>
         </motion.div>
@@ -143,7 +143,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center text-sm text-gray-500 hover:text-white mt-12 border-t border-[#fed42a] pt-4 px-4 relative z-10">
-        © 2023 Copyrights by GoWilds. All Rights Reserved
+        © 2025 Copyrights by GoWilds. All Rights Reserved
       </div>
     </footer>
   );

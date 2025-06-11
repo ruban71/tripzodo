@@ -9,21 +9,21 @@ import "aos/dist/aos.css";
 const tours = [
   {
     country: "Dubai – United Arab Emirates",
-    title: "Dubai City Tour Package",
+    title: "Dubai City Arab Emirates Tour Package",
     duration: "3 Nights 4 Days",
     image: "/home/dubai.png",
     link: "#",
   },
   {
     country: "Switzerland, Zurich",
-    title: "Best of Switzerland Package",
+    title: "Best of Switzerland Tour Package",
     duration: "4 Nights 5 Days",
     image: "/home/Switzerland.jpg",
     link: "#",
   },
   {
     country: "Singapore, Sentosa",
-    title: "Amazing Singapore Tour",
+    title: "Amazing Singapore Tour Package",
     duration: "3 Nights 4 Days",
     image: "/home/Singapore.jpg",
     link: "#",
@@ -73,7 +73,7 @@ function TrendingTours() {
   return (
     <section className="max-w-7xl mx-auto px-9 mt-16">
       <h2
-        className="text-3xl font-bold mb-12 text-center text-gray-800"
+        className="text-3xl font-bold mb-12 text-center text-gray-900"
         data-aos="fade-up"
       >
        <span className="text-[#fed42a]">Trending</span>  Tours

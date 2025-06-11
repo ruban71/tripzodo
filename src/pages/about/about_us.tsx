@@ -5,6 +5,7 @@ import MeetOurTeam from "@/component/common/meetour_team";
 import WhyChooseUsAlt from "@/component/common/whychooseus";
 import App_layout from "@/component/layout/app-layout";
 import Image from "next/image";
+import Head from "next/head";
 import React from "react";
 import { FaHandshake, FaBuilding, FaGlobeAmericas, FaCheckCircle } from "react-icons/fa";
 
@@ -60,6 +61,9 @@ export default function AboutUs() {
 
   return (
     <App_layout>
+       <Head>
+        <title>Tripzodo | About</title>
+      </Head>
       <div>
         {/* Hero Section */}
         <div className="relative h-[60vh] w-full">
@@ -128,12 +132,14 @@ export default function AboutUs() {
         
 
         {/* Stats Cards Section */}
-        <div className="px-6 bg-white text-gray-800">
+        <div className="px-6  bg-white text-gray-800">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-[#fed42a] mb-12">
-              Our <span className="text-gray-900">Impact</span>
+            <div className="">
+            <h2 className="text-4xl font-bold text-center py-5 text-[#fed42a]">
+              Our <span className="text-gray-900 ">Impact</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-8 gap-8">
               {cardData.map((card, index) => (
                 <div
                   key={index}
@@ -192,9 +198,15 @@ export default function AboutUs() {
           </div>
         </div>
        
-           <Faq/>
-        <Contactall />
-        <GetUpdates />
+           <div data-aos="fade-up" data-aos-delay="300">
+          <Faq />
+        </div>
+        <div className="" data-aos="fade-up" data-aos-delay="400">
+          <Contactall />
+        </div>
+        <div data-aos="fade-up" data-aos-delay="500">
+          <GetUpdates />
+        </div>
       </div>
     </App_layout>
   );

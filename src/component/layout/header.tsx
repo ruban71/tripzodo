@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type NavItem = {
   name: string;
   link?: string;
   dropdown?: { name: string; link: string }[];
-  mega?: Record<string, { name: string; link: string }[]>;
 };
 
 const navItems: NavItem[] = [
@@ -20,17 +20,17 @@ const navItems: NavItem[] = [
 ];
 
 const Header = () => {
+  const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeMenu, setActiveMenu] = useState<string>("Home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = (name: string) => setActiveDropdown(name);
   const handleMouseLeave = () => setActiveDropdown(null);
-  const handleClick = (name: string) => setActiveMenu(name);
+
+  const isActive = (path?: string) => path && pathname === path;
 
   return (
     <header className="fixed w-full top-0 z-50 bg-[#fed42a] shadow">
-      
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -52,36 +52,19 @@ const Header = () => {
               onMouseLeave={handleMouseLeave}
               className="relative group"
             >
-              {item.link ? (
-                <Link
-                  href={item.link}
-                  onClick={() => handleClick(item.name)}
-                  className={`flex items-center gap-1 font-medium transition duration-200 ${
-                    activeMenu === item.name
-                      ? "text-white font-bold underline"
-                      : "text-gray-800 hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                  {(item.dropdown || item.mega) && (
-                    <FaChevronDown className="text-xs mt-1" />
-                  )}
-                </Link>
-              ) : (
-                <button
-                  onClick={() => handleClick(item.name)}
-                  className={`flex items-center gap-1 font-medium transition duration-200 ${
-                    activeMenu === item.name
-                      ? "text-white font-bold underline"
-                      : "text-gray-800 hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                  {(item.dropdown || item.mega) && (
-                    <FaChevronDown className="text-xs mt-1" />
-                  )}
-                </button>
-              )}
+              <Link
+                href={item.link || "#"}
+                className={`flex items-center gap-1 font-medium transition duration-200 ${
+                  isActive(item.link)
+                    ? "text-white font-bold underline"
+                    : "text-gray-800 hover:text-white"
+                }`}
+              >
+                {item.name}
+                {(item.dropdown) && (
+                  <FaChevronDown className="text-xs mt-1" />
+                )}
+              </Link>
 
               {item.dropdown && activeDropdown === item.name && (
                 <motion.ul
@@ -131,12 +114,9 @@ const Header = () => {
               <li key={idx}>
                 <Link
                   href={item.link || "#"}
-                  onClick={() => {
-                    setActiveMenu(item.name);
-                    setMobileMenuOpen(false);
-                  }}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`block py-2 text-base font-medium ${
-                    activeMenu === item.name
+                    isActive(item.link)
                       ? "text-white font-bold underline"
                       : "text-gray-800 hover:text-white"
                   }`}
@@ -145,8 +125,6 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-
-            {/* Book Now Button for Mobile */}
             <li>
               <Link
                 href="/book_now"

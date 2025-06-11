@@ -17,6 +17,7 @@ import TrendingTours from "./home/trending_tours";
 import Contactall from "@/component/common/contactall";
 import GetUpdates from "@/component/common/getupdates";
 import TravelIntro from "@/component/common/travelintro";
+import RegisterForm from "@/component/common/sendmessage";
 
 
 
@@ -27,6 +28,7 @@ export default function Home() {
    <Header/>
    
    <HeroSection/>
+   <RegisterForm/>
    <PopularPackages/>
    <WelcomeHolidays/>
    <TravelIntro/>

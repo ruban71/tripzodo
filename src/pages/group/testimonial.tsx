@@ -40,7 +40,7 @@ const Testimonials = () => {
     <section className=" bg-white text-center mb-12 mt-5 px-4 md:px-20">
         
       <div className="flex justify-center mb-8">
-  <span className="bg-yellow-100 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
+  <span className="bg-yellow-100 mt-4 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-md transition duration-300">
     Testimonials
   </span>
 </div>
@@ -49,7 +49,7 @@ const Testimonials = () => {
         Read some of our repeat customers feedback
       </h2>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-10 pb-4">
         {testimonials.map((t, i) => (
           <div
             key={i}

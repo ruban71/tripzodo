@@ -5,6 +5,7 @@ import {
   FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaPinterestP,
 } from "react-icons/fa";
 import Image from 'next/image';
+import Head from 'next/head';
 import GetUpdates from '@/component/common/getupdates';
 
 const Contact = () => {
@@ -61,23 +62,26 @@ const Contact = () => {
   const contactDetails = [
     {
       title: 'Office Location',
-      content: '55 Main Street\n2nd Floor New York',
+      content: ' 178/4A ID, Panduranga Elite Enclave, Kundarappalli, Krishnagiri. Tamil Nadu 635-115',
       image: '/contact/locationn.png',
     },
     {
       title: 'Email Address',
-      content: 'contact@example.com\ninfo@example.com',
+      content: 'Travel@tripzodo.com',
       image: '/contact/emaill.png',
     },
     {
       title: 'Hotline',
-      content: '+1 (307) 776-0608\n666 8888 000',
+      content: '+91 9500093383',
       image: '/contact/hotlinee.png',
     },
   ];
 
   return (
     <App_layout>
+       <Head>
+        <title>Tripzodo | Contact</title>
+      </Head>
       <div className="bg-white  text-gray-800">
         {/* Hero Section */}
         <div
@@ -236,12 +240,15 @@ const Contact = () => {
                 className="w-full p-3 border border-gray-300 rounded-md"
                 required
               ></textarea>
-              <button
-                type="submit"
-                className="bg-[#fed42a] hover:bg-yellow-400 text-black font-semibold py-2 px-6 rounded-md transition duration-300"
-              >
-                Send a Message
-              </button>
+             <div className="text-right">
+  <button
+    type="submit"
+    className="bg-[#fed42a] hover:bg-yellow-400 text-black font-semibold mb-2 py-2 px-6 rounded-md transition duration-300"
+  >
+    Send a Message
+  </button>
+</div>
+
             </motion.form>
           </div>
         </section>

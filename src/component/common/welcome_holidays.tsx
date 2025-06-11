@@ -1,17 +1,23 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const WelcomeHolidays = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <section className="relative min-h-screen w-full  overflow-hidden flex items-center justify-center">
-      {/* Centered Background Container */}
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Background Image */}
       <div className="absolute inset-0 flex justify-center z-0">
         <div className="relative w-full max-w-7xl h-full">
           <Image
-            src="/home/welcome.jpg" // Update with your image path
+            src="/home/welcome.jpg"
             alt="Holiday Background"
             layout="fill"
             objectFit="cover"
@@ -22,40 +28,38 @@ const WelcomeHolidays = () => {
       </div>
 
       {/* Overlay Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 max-w-3xl p-8 text-center  rounded-3xl shadow-2xl"
+      <div
+        className="relative z-10 max-w-3xl p-8 text-center"
+        data-aos="fade-up"
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+        <h1
           className="text-3xl md:text-5xl font-bold text-[#fed42a] mb-4"
+          data-aos="zoom-in"
+          data-aos-delay="200"
         >
           Welcome to Holidays
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+        <p
           className="text-lg md:text-lg text-white"
+          data-aos="fade-up"
+          data-aos-delay="400"
         >
           Discover the best travel experiences with{" "}
-          <span className="font-semibold text-white">Tripzodo</span>. Your journey to beautiful destinations begins here. Let&apos;s explore the world together!
-        </motion.p>
+          <span className="font-semibold text-white">Tripzodo</span>. Your
+          journey to beautiful destinations begins here. Let&apos;s explore the
+          world together!
+        </p>
 
-        <motion.a
+        <a
           href="/group/grouptour_herosection"
-          whileHover={{ scale: 1.07 }}
-          whileTap={{ scale: 0.95 }}
           className="inline-block mt-8 px-6 py-3 bg-[#fed42a] hover:bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-md transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="600"
         >
           Explore Packages
-        </motion.a>
-      </motion.div>
+        </a>
+      </div>
     </section>
   );
 };

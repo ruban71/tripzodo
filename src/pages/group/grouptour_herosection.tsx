@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Head from "next/head";
 import App_layout from "@/component/layout/app-layout";
 import GroupTourCards from "./grouptour_cards";
 import Testimonials from "./testimonial";
@@ -9,6 +10,10 @@ import GetUpdates from "@/component/common/getupdates";
 const GroupTourHeroSection = () => {
   return (
     <App_layout>
+     
+       <Head>
+        <title>Tripzodo |  Explore Destinations</title>
+      </Head>
     <div className="relative w-full h-[500px] mt-16">
       {/* Background Image */}
       <Image

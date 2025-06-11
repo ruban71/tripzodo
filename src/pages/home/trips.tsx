@@ -51,7 +51,7 @@ const Trips = () => {
 
   return (
     <div className="py-2 px-6 bg-white text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8">Top Trip Types</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Top Trip Types</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {tripData.map((trip, index) => (

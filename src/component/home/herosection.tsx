@@ -45,8 +45,8 @@ const HeroSection = () => {
 
   return (
     <div>
-  <Head>
-        <title>TravelSite | Home</title>
+      <Head>
+        <title>Tripzodo | Home</title>
       </Head>
 
     

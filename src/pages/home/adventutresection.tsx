@@ -52,7 +52,7 @@ const AdventureSection = () => {
   const [activeTopic, setActiveTopic] = useState(topics[0]);
 
   return (
-    <div className="max-w-7xl mx-auto px-9 mt-16">
+    <div className="max-w-7xl mx-auto px-9">
     <section className="bg-[#0d1d18] rounded-lg text-white py-8 mt-10 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-start gap-10">
         {/* Left: List */}

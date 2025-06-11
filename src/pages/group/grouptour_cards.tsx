@@ -45,7 +45,7 @@ const travelPackages = [
   {
     title: "Ancient Civilizations",
     subtopics: ["Egyptian Pyramids", "Machu Picchu", "Petra, Jordan"],
-    img: "/home/trending1.jpg",
+    img: "/group/Ancient Civilizations.jpg",
   },
   {
     title: "Medieval Europe",
@@ -111,7 +111,7 @@ const GroupTourCards = () => {
 
 
 
-       <div className="max-w-7xl mx-auto">
+       <div className="max-w-7xl mx-auto mt-8">
   <h2 className="text-3xl font-bold text-center mb-14">
    <span className="text-[#fed42a]">  Explore Historical <span className="text-gray-900">Travel Packages</span></span>
   </h2>
@@ -166,7 +166,7 @@ const GroupTourCards = () => {
 
           {/* Section: Trending Images */}
           <div className="mt-16">
-            <h2 className="text-3xl font-bold text-center mb-12 ">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12 ">
               Trending <span className="text-[#fed42a]">Travel Moments</span>
             </h2>
 
