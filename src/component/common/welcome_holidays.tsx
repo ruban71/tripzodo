@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+
 
 const WelcomeHolidays = () => {
   useEffect(() => {
@@ -51,14 +52,14 @@ const WelcomeHolidays = () => {
           world together!
         </p>
 
-        <a
+        <Link
           href="/group/grouptour_herosection"
           className="inline-block mt-8 px-6 py-3 bg-[#fed42a] hover:bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-md transition-all duration-300"
           data-aos="fade-up"
           data-aos-delay="600"
         >
           Explore Packages
-        </a>
+        </Link>
       </div>
     </section>
   );
