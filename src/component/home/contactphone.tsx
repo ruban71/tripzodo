@@ -92,7 +92,7 @@ function Contactphone() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Phone Number (14 digits)"
+              placeholder="Phone Number (10 digits)"
               className="p-3 border border-gray-300 rounded-md w-full"
               required
             />
